@@ -69,3 +69,14 @@ import moment from 'moment';
 const currentTime  = moment().format("yyyy mm dd hh:mm");
 console.log(currentTime);
 
+//**                                         Patternlar
+
+/*  
+Architectural Pattern: MVController, Dependency Injection, MVPresenter;
+bu backendimizni malumot oqimini tartibga soladigon bir vosita yani arhitekturasi 
+
+Design pattern: Middleware, Decotar; modullarni iwladishda  nest jsda 
+butun bir backendni emas 
+malum bir bolaklarini echshda iwlatiladigon pattern 
+
+*/
