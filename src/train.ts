@@ -1,3 +1,5 @@
+console.log("This is Train Area");
+
 //**                                                  Task - G
 
 const nums = [3,5,1,9,4,8,9,6,0]
