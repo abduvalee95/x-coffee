@@ -89,27 +89,56 @@ malum bir bolaklarini echshda iwlatiladigon pattern
 // import moment from "moment"  //const moment require("moment")
 
 */
+// *        IMPORT
 
+/* 
 import dotenv from "dotenv";
+import mongoose from "mongoose";
+import app from "./app";
+
+
 dotenv.config();
-
 console.log("PORT",process.env.PORT);
-
 console.log("MONGO_URL",process.env.MONGO_URL);
 
 
 // ?mongoose orqali mongodbga ulanish 
 
-import mongoose from "mongoose"
 
 mongoose.connect(process.env.MONGO_URL as string, {}) //{} conection option 
 .then((data) => {
     console.log("MongoDB connection succsess");
     const PORT = process.env.PORT ?? 3003;
-    
+    app.listen(PORT, function() {
+        console.log("DONE"); // dirname qiymatni korish uchun
+        console.log(`The server is running successfully on port: ${PORT}`);
+        
+    })
 })
 
 .catch((err)=>
     console.log("ERROR on connection PORT",err)
     
+)
+ */
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import app from "./app";
+dotenv.config();
+
+// ?mongoose orqali mongodbga ulanish 
+
+
+mongoose.connect(process.env.MONGO_URL as string, {}) //{} conection option 
+.then((data) => {
+    console.log("MongoDB connection succsess");
+    const PORT = process.env.PORT ?? 3003;
+    app.listen(PORT, function() {
+    console.log(`The server is running successfully on port: ${PORT}`);
+        
+    })
+})
+
+.catch((err)=>
+    console.log("ERROR on connection PORT",err)
 )

@@ -1,0 +1,51 @@
+/*
+
+import express from "express"
+import path from "path" // core package 
+
+// **                               ENTERANCE
+const app = express()
+
+console.log("__dirname",__dirname); // dirname qiymatni korish
+// __dirname /Users/leo/Desktop/burak/src manzilni korstatib beryabti shu asosida join qilamiz
+// va "public" folderni staticga aylantirib beradi
+app.use(express.static(path.join(__dirname,"public")))// midlware pattern
+//path orqali manzilni kiritamiz
+app.use(express.urlencoded({ extended:true }));
+app.use(express.json()); //rest api da kelyatgan datalarni json datani otkazishga ruhsat beryabmiz
+// **                               SESSIONS
+
+
+// **                               VIEWS
+//express da aynan view ejs ni iwlatishini aytamiz
+app.set('views',path.join(__dirname,"views"))
+app.set("view engine", 'ejs') // view engine ejs ekanligini bildiramiz
+
+
+// **                               ROUTING
+
+
+// ishga tushurish uchun export qilamiz
+
+export default app;  //module.exports = app;  commonJS
+
+*/
+import express from "express"
+import path from "path"
+
+// **                               ENTERANCE
+const app = express()
+app.use(express.static(path.join(__dirname,"public")))
+app.use(express.urlencoded({ extended:true }));
+app.use(express.json());
+// **                               SESSIONS
+
+
+// **                               VIEWS
+app.set('views',path.join(__dirname,"views"))
+app.set("view engine", 'ejs')
+
+
+// **                               ROUTING
+
+export default app;
