@@ -1,3 +1,4 @@
+/* 
 // **                                   Typescript 
 // Typescript codelirimizni Compiler qilib beradi oz vaqrida Error chiqadigon qiladi
 // variableni ohiriga : va dynamic type ni korsatishimiz kk boladi
@@ -72,6 +73,7 @@ console.log(currentTime);
 //**                                         Patternlar
 
 /*  
+
 Architectural Pattern: MVController, Dependency Injection, MVPresenter;
 bu backendimizni malumot oqimini tartibga soladigon bir vosita yani arhitekturasi 
 
@@ -79,4 +81,18 @@ Design pattern: Middleware, Decotar; modullarni iwladishda  nest jsda
 butun bir backendni emas 
 malum bir bolaklarini echshda iwlatiladigon pattern 
 
+
+// interface Person {
+//     name1: "dsaf"|"ksfa"|"dgsdf"|342
+// }
+
+// import moment from "moment"  //const moment require("moment")
+
 */
+
+import dotenv from "dotenv";
+dotenv.config();
+
+console.log("PORT",process.env.PORT);
+
+console.log("MONGO_URL",process.env.MONGO_URL);
