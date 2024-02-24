@@ -96,3 +96,20 @@ dotenv.config();
 console.log("PORT",process.env.PORT);
 
 console.log("MONGO_URL",process.env.MONGO_URL);
+
+
+// ?mongoose orqali mongodbga ulanish 
+
+import mongoose from "mongoose"
+
+mongoose.connect(process.env.MONGO_URL as string, {}) //{} conection option 
+.then((data) => {
+    console.log("MongoDB connection succsess");
+    const PORT = process.env.PORT ?? 3003;
+    
+})
+
+.catch((err)=>
+    console.log("ERROR on connection PORT",err)
+    
+)
