@@ -2,6 +2,8 @@
 import{ T,test } from "../lips/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
 import { Request,Response } from "express";
 const restaurantController:T ={};
+import MemberService  from "../models/Member.service";
+
 /* 
 memberControler object hosil qiladik va bu object ichida br qator methodlar qurib olamiz 
 Routerlar ichida qanday endpoint lar bor korib olamiz va
