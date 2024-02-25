@@ -1,8 +1,8 @@
 import express from "express";
 // import express,{Request,Response} from "express"; // typelariniham chaqirib olamiz
-import memberController from "./controllers/member.controller";
+import restaurantController from "./controllers/restaurant.controller";
 
-const router = express.Router();
+const routerAdmin = express.Router();
 // va manashu instancdan foydalanib get post methodlarini amalga oshirishimiz m-m
 
 //bu erda 2ta argument kirgizilishi kk 1 chi argument api ni url hisoblaniladi 
@@ -25,11 +25,11 @@ router.get('/signup',(req:Request, res:Response) => {
 // Routerni endi Controlerlar orqalik handle qilsak 
 // routerlarni get methodi orqalik olib unga url taqdim etyabmiz / url bn kirsak go homega yuboryabti req,res ni qabul qiladi automatic
 // "router" yonalish beradigon (routing'yonalish korsatuvchi','marshrutizator') 
-/* 
-router.get('/', memberController.goHome)
-router.get('/login', memberController.getLogin)// login endpoint membercontroller ni getLogin degan mantiqgiga borsin deyabmiz 
-router.get('/signup', memberController.getSignup)
- */
+routerAdmin.get('/admin', restaurantController.goHome)  // endpoint admin dan boshlansagina adminga yuboradi
 
-//*                                             React
-export default router
+routerAdmin.get('/login', restaurantController.getLogin)// login endpoint membercontroller ni getLogin degan mantiqgiga borsin deyabmiz 
+
+routerAdmin.get('/signup', restaurantController.getSignup)
+
+
+export default routerAdmin;

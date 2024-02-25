@@ -34,6 +34,7 @@ export default app;  //module.exports = app;  commonJS
 import express from "express"
 import path from "path"
 import router from "./router"
+import routerAdmin from "./routerAdmin"
 
 // **                               ENTERANCE
 const app = express()
@@ -49,15 +50,17 @@ app.set("view engine", 'ejs')
 
 
 // **                               ROUTING
-app.use('/',router)// Midlleware Design Pattern 
+
+// app.use('/',router)// Midlleware Design Pattern 
 /* 
 '/'mana shu erda integrasiya bolya dan kelayotgan requestlarni 
 router  folderimizga yonaltiryabti 
 va buning vazifasi manashu erda tugaydi
 
- */
+*/
 
-
+app.use('/admin', routerAdmin); // SSR:EJS
+app.use('/',router);           // SPA: REACT
 
 
 
