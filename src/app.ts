@@ -30,8 +30,10 @@ app.set("view engine", 'ejs') // view engine ejs ekanligini bildiramiz
 export default app;  //module.exports = app;  commonJS
 
 */
+//*                                 Imports
 import express from "express"
 import path from "path"
+import router from "./router"
 
 // **                               ENTERANCE
 const app = express()
@@ -47,5 +49,17 @@ app.set("view engine", 'ejs')
 
 
 // **                               ROUTING
+app.use('/',router)// Midlleware Design Pattern 
+/* 
+'/'mana shu erda integrasiya bolya dan kelayotgan requestlarni 
+router  folderimizga yonaltiryabti 
+va buning vazifasi manashu erda tugaydi
+
+ */
+
+
+
+
+
 
 export default app;
