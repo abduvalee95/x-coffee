@@ -1,7 +1,19 @@
 console.log("This is Train Area");
 
-//**                                                  Task - G
+//**                                                  Task - H
+const number = [9,8,1,2,-5,3,4,5,-9,6,7,8,-0,45] 
 
+
+function getPositive() {
+    return number.filter(ele  => ele > 0).toString()
+}
+const a = getPositive()
+console.log("Type:",typeof(a));
+
+
+
+//**                                                  Task - G
+/* 
 const nums = [3,5,1,9,4,8,9,6,0]
 
 function getHighestIndex() {
@@ -17,7 +29,8 @@ function getHighestIndex() {
     return hightIndex
 }
 const hightIndex = getHighestIndex()
-console.log("Eng baland son bu:",hightIndex,"Indexda");
+console.log("Eng baland son bu:",hightIndex,"Indexda"); 
+*/
 
 /* 
 const nums = [3, 5, 1, 9, 4, 8, 9, 6, 0];
