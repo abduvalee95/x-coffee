@@ -3,6 +3,8 @@ import{ T,test } from "../libs/types/common" // .. tashqariga chiqib lipsga bora
 import { Request,Response } from "express";
 const restaurantController:T ={};
 import MemberService  from "../models/Member.service";
+import { MemberInput } from "../libs/types/member";
+import { MemberType } from "../libs/enum/member.enum";
 
 /* 
 memberControler object hosil qiladik va bu object ichida br qator methodlar qurib olamiz 
@@ -37,13 +39,22 @@ restaurantController.getSignup = ( req:Request, res:Response) => {
         }
     };
 
-restaurantController.processSignup = ( req:Request, res:Response) => { 
+restaurantController.processSignup = async ( req:Request, res:Response) => { 
     try {
         console.log("processSignup");
+        // memberServicedan instance olib MemSerga tenglashtiryabmiz
+        // console.log('body',req.body);
 
-        res.send('processSignup');
+        const newMember:MemberInput = req.body;
+        newMember.memberType = MemberType.RESTAURANT;
+        
+        const memberService = new MemberService ();
+      const result =  await memberService.processSignup(newMember); // instance orqali process ishga tushyabti  log ishlayabti
+
+        res.send(result)
         } catch (error) {
             console.log("Error, processSignup",error);
+            res.send(error)
         }
     };
 

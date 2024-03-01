@@ -63,3 +63,8 @@ console.log("The index of the highest number is:", highestIndex);
 // 3) error handling customaized errors error.ts 
 
 
+/*
+Traditional api 
+Rest api 
+GraphQl api 
+ */

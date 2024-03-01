@@ -27,11 +27,11 @@ router.get('/signup',(req:Request, res:Response) => {
 // "router" yonalish beradigon (routing'yonalish korsatuvchi','marshrutizator') 
 
 //*                                                     Restaraunt
-routerAdmin.get('/', restaurantController.goHome)  // endpoint admin dan boshlansagina adminga yuboradi
 routerAdmin
+            .get('/', restaurantController.goHome)  // endpoint admin dan boshlansagina adminga yuboradi
             .get('/login', restaurantController.getLogin)// login endpoint membercontroller ni getLogin degan mantiqgiga borsin deyabmiz 
             .post('/login', restaurantController.processLogin)
-routerAdmin.get('/signup', restaurantController.getSignup)
+            .get('/signup', restaurantController.getSignup) //*SignUp
             .post('/signup', restaurantController.processSignup) 
 
 //*                                                     Product
