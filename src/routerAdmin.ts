@@ -25,11 +25,19 @@ router.get('/signup',(req:Request, res:Response) => {
 // Routerni endi Controlerlar orqalik handle qilsak 
 // routerlarni get methodi orqalik olib unga url taqdim etyabmiz / url bn kirsak go homega yuboryabti req,res ni qabul qiladi automatic
 // "router" yonalish beradigon (routing'yonalish korsatuvchi','marshrutizator') 
+
+//*                                                     Restaraunt
 routerAdmin.get('/', restaurantController.goHome)  // endpoint admin dan boshlansagina adminga yuboradi
-
-routerAdmin.get('/login', restaurantController.getLogin)// login endpoint membercontroller ni getLogin degan mantiqgiga borsin deyabmiz 
-
+routerAdmin
+            .get('/login', restaurantController.getLogin)// login endpoint membercontroller ni getLogin degan mantiqgiga borsin deyabmiz 
+            .post('/login', restaurantController.processLogin)
 routerAdmin.get('/signup', restaurantController.getSignup)
+            .post('/signup', restaurantController.processSignup) 
+
+//*                                                     Product
+
+
+//*                                                     User
 
 
 export default routerAdmin;

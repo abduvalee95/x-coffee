@@ -21,7 +21,6 @@ restaurantController.goHome = ( req:Request, res:Response) => {  // mantiqni oli
 restaurantController.getLogin = ( req:Request, res:Response) => { 
     try {
         console.log("getlogin");
-
         res.send('Login Page');
         } catch (error) {
             console.log("Error, getLogin",error);
@@ -35,6 +34,25 @@ restaurantController.getSignup = ( req:Request, res:Response) => {
         res.send('Sign-Up Page');
         } catch (error) {
             console.log("Error, getSign-Up",error);
+        }
+    };
+
+restaurantController.processSignup = ( req:Request, res:Response) => { 
+    try {
+        console.log("processSignup");
+
+        res.send('processSignup');
+        } catch (error) {
+            console.log("Error, processSignup",error);
+        }
+    };
+
+restaurantController.processLogin = ( req:Request, res:Response) => { 
+    try {
+        console.log("processLogin");
+        res.send("done!")
+        } catch (error) {
+            console.log("Error, processLogin ",error);
         }
     };
 
