@@ -1,5 +1,5 @@
 // controllerlarni doim objectlar orqali hosil qilamiz
-import{ T,test } from "../lips/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
+import{ T,test } from "../libs/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
 import { Request,Response } from "express";
 const memberController:T ={};
 /* 

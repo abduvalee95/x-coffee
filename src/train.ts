@@ -49,3 +49,17 @@ const highestIndex = getHighestIndex();
 console.log("The index of the highest number is:", highestIndex);
 
  */
+
+// Project standart
+
+// 1 login standarts
+
+// 2chi . naming standartds // goHome 
+// -Camelcase: function, method, variable
+// Pascal - class
+// folder -kebab case
+// css - snake 
+
+// 3) error handling customaized errors error.ts 
+
+

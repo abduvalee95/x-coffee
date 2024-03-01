@@ -1,5 +1,5 @@
 import mongoose,{ Schema } from "mongoose";
-import { MemberType, MemberStatus } from "../lips/enum/member.enum";
+import { MemberType, MemberStatus } from "../libs/enum/member.enum";
 /* 
 Schemalar 2 hil quriladi 
 1: schemadan foydalanish 
