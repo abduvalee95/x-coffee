@@ -1,7 +1,7 @@
 // member servislarimizni classlar orqalik quramiz
 
 import MemberModel from "../schema/Member.model";
-import { Member, MemberInput } from "../libs/types/member";
+import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enum/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 // * memberSchema modeldi member.service modulga chaqirvolamiz
@@ -28,6 +28,28 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 
         return result
     }
+
+    public async processLogin(input: LoginInput): Promise <Member> {
+        // biznes Logic
+       // member schema model orqali --
+       console.log("Service login");
+       
+        const member = await this.memberModel
+       // -- biz kiritgan member nick ni qidirmoqda
+        .findOne
+        ({ memberNick: input.memberNick }, // Query condition qandey malumot izlanish kk shuni kiritamiz
+        { _id:0,memberNick: 1, memberPassword: 1 }
+        ) //  force: majburiy cahqirish qillib passwordni ovolamiz 1 bolsa olib beradi 0 olib bermidi _id:0
+        .exec();
+        // agar member mavjid bolmasa ! 
+        if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+        
+        // va nickni ovodik bu natijani
+        console.log("exist:",member);
+        // natijani qaytarib yubordik va res.controler  resultga qaytib boryabti
+        return member
+        
+    }
 }
 
  */
@@ -44,9 +66,7 @@ class MemberService {
         .findOne({memberType:MemberType.RESTAURANT})
         .exec() // querylarni ketma ketligni yop  kop resurse emidi qoymasayam bolaveradi 
         console.log("EXIST:",exist);
-        
              if (exist)  throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
-           
         try {
         const result = await this.memberModel.create(input);  
         result.memberPassword = "";
@@ -55,6 +75,26 @@ class MemberService {
         } catch (error) {
             throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
         }
+    }
+
+    public async processLogin(input: LoginInput): Promise <Member> {
+       console.log("Service login");
+       
+        const member = await this.memberModel
+        .findOne (
+       { memberNick: input.memberNick },
+        { _id:0,memberNick: 1, memberPassword: 1 }
+        ) 
+        .exec();
+        if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+        
+        const isMatch =  input.memberPassword  === member.memberPassword
+            console.log("isMatch:",isMatch);
+        if (!isMatch) {
+            throw new Errors(HttpCode.UNAUTHORITHED, Message.WRONG_PASSWORD)
+        }
+      return await this.memberModel.findById(member._id)
+      .exec()
     }
 }
 

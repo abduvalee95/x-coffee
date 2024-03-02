@@ -10,10 +10,14 @@ export enum HttpCode {
 }
 
 export enum  Message {
-    SOMETHING_WENT_WRONG = 'Something went wrong',
-    NO_DATA_FOUND = 'No Data is Found',
-    CREATE_FAILED = 'Create is Failed',
-    UPDATE_FAILED = 'Update is Failed'
+    SOMETHING_WENT_WRONG = 'Something went wrong!',
+    NO_DATA_FOUND = 'No Data is Found!',
+    CREATE_FAILED = 'Create is Failed!',
+    UPDATE_FAILED = 'Update is Failed!',
+
+    USED_NICK_FOUND = 'Already used nickname or phone!',
+    NO_MEMBER_NICK = 'No member with that member Nick!',
+    WRONG_PASSWORD = 'Wrong Password, Please try again!',
 }
 
 // Js ichida build in qilingan errorlarga build in qilinsin  INHERETANCE concept

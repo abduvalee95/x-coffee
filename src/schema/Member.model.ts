@@ -62,6 +62,6 @@ const memberSchema = new Schema ({
 // enum: qiymatlar aniq belgilarni iwlatishda kiritiladigon type hisoblaniladi
 
 //! Schema Modelga aylantirish
-export default mongoose.model("Model", memberSchema)
+export default mongoose.model("Member", memberSchema)
 //mongooseni model degan metodi aynan bizga schema hosil qilib beradi  va uni nomini member deb kiritamiz memberSchema ni 2chi argument sifatida pass qilamiz
 //instance olingan memberSchemani pass qilamiz

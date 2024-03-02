@@ -3,7 +3,7 @@ import{ T,test } from "../libs/types/common" // .. tashqariga chiqib lipsga bora
 import { Request,Response } from "express";
 const restaurantController:T ={};
 import MemberService  from "../models/Member.service";
-import { MemberInput } from "../libs/types/member";
+import { LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enum/member.enum";
 
 /* 
@@ -49,7 +49,7 @@ restaurantController.processSignup = async ( req:Request, res:Response) => {
         newMember.memberType = MemberType.RESTAURANT;
         
         const memberService = new MemberService ();
-      const result =  await memberService.processSignup(newMember); // instance orqali process ishga tushyabti  log ishlayabti
+        const result =  await memberService.processSignup(newMember); // instance orqali process ishga tushyabti  log ishlayabti
 
         res.send(result)
         } catch (error) {
@@ -58,12 +58,23 @@ restaurantController.processSignup = async ( req:Request, res:Response) => {
         }
     };
 
-restaurantController.processLogin = ( req:Request, res:Response) => { 
+restaurantController.processLogin = async ( req:Request, res:Response) => { 
     try {
-        console.log("processLogin");
-        res.send("done!")
+        console.log("processLogin:restoran");
+        console.log("body:", req.body);
+        const input : LoginInput = req.body;
+
+        // MemberService modelimizdan hosil qilingan object 
+        const memberService = new MemberService ();
+        // bu objectni yangi methodini defination qismini quramiz va objectni chaqirib olamiz
+        const result = await memberService.processLogin(input)
+        // bu erga qabul qilib olyabmoz 
+        // va response yuboryabmiz
+        res.send(result)
         } catch (error) {
             console.log("Error, processLogin ",error);
+            // process logindan qaytgan error bu erda handle bolish kk
+            res.send(error)
         }
     };
 
