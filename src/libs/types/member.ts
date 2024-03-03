@@ -5,12 +5,12 @@ export interface MemberInput {
     _id : ObjectId;
     memberType?: MemberType;
     memberStatus?: MemberStatus;
-    memberNick : String;
-    memberPhone : String;
-    memberPassword : String;
-    memberAddre? : String;
-    memberDesc?  : String;
-    memberImage? : String;
+    memberNick : string;
+    memberPhone : string;
+    memberPassword : string;
+    memberAddre? : string;
+    memberDesc?  : string;
+    memberImage? : string;
     memberPoints? : Number;
 }
 
@@ -19,12 +19,12 @@ export interface MemberInput {
 export interface Member {
     memberType: MemberType;
     memberStatus: MemberStatus;
-    memberçNick : String;
-    memberPhone : String;
-    memberPassword? : String; //yashirdik
-    memberAddre? : String;
-    memberDesc?  : String;
-    memberImage? : String;
+    memberçNick : string;
+    memberPhone : string;
+    memberPassword? : string; //yashirdik
+    memberAddre? : string;
+    memberDesc?  : string;
+    memberImage? : string;
     memberPoints : Number; 
     createdAt: Date;
     updatedAt: Date;
