@@ -14,7 +14,7 @@ Routerlar ichida qanday endpoint lar bor korib olamiz va
 restaurantController.goHome = ( req:Request, res:Response) => {  // mantiqni olib otamiz
     try {
         console.log("goHome");
-    res.send('Home Page');
+    res.render('home');
     } catch (error) {
         console.log("Error, goHome",error);
     }
@@ -23,7 +23,7 @@ restaurantController.goHome = ( req:Request, res:Response) => {  // mantiqni oli
 restaurantController.getLogin = ( req:Request, res:Response) => { 
     try {
         console.log("getlogin");
-        res.send('Login Page');
+        res.render('login');
         } catch (error) {
             console.log("Error, getLogin",error);
         }
@@ -33,7 +33,7 @@ restaurantController.getSignup = ( req:Request, res:Response) => {
     try {
         console.log("getSingup");
 
-        res.send('Sign-Up Page');
+        res.render('signup');
         } catch (error) {
             console.log("Error, getSign-Up",error);
         }
