@@ -50,6 +50,7 @@ restaurantController.processSignup = async ( req:Request, res:Response) => {
         
         const memberService = new MemberService ();
         const result =  await memberService.processSignup(newMember); // instance orqali process ishga tushyabti  log ishlayabti
+//todo Sessions
 
         res.send(result)
         } catch (error) {
@@ -68,8 +69,8 @@ restaurantController.processLogin = async ( req:Request, res:Response) => {
         const memberService = new MemberService ();
         // bu objectni yangi methodini defination qismini quramiz va objectni chaqirib olamiz
         const result = await memberService.processLogin(input)
-        // bu erga qabul qilib olyabmoz 
-        // va response yuboryabmiz
+// todo sessions
+
         res.send(result)
         } catch (error) {
             console.log("Error, processLogin ",error);

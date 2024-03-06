@@ -62,6 +62,55 @@ class MemberService {
     constructor() {
         this.memberModel = MemberModel; // bu class database bn operatsiyalardi qiladi 
     }
+//*                                                         SPA
+
+    public async signup(input: MemberInput): Promise <Member> { 
+        const salt = await bcrypt.genSalt();
+        input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
+    console.log('keldi');
+    
+        try {
+        const result = await this.memberModel.create(input);  
+        result.memberPassword = "";
+        console.log('otdi');
+        
+        return result.toJSON()
+
+        } catch (error) {
+            console.log('eror model signup',error);
+            
+            throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_FOUND);
+        }
+    }
+
+    public async login(input: LoginInput): Promise <Member> {
+       console.log("Service login");
+       // TODO consider member sts
+        const member = await this.memberModel
+        .findOne (
+       { memberNick: input.memberNick },
+        { memberNick: 1, memberPassword: 1 }
+        ) 
+        .exec();
+        if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+
+        const isMatch = await bcrypt.compare(
+            input.memberPassword,
+            member.memberPassword
+        );
+        if (!isMatch) {
+            throw new Errors(HttpCode.UNAUTHORITHED, Message.WRONG_PASSWORD)
+        }
+      return await this.memberModel.findById(member._id)
+      .lean()
+      .exec()
+    }
+
+
+
+
+
+//*                                                         SSR
 
     public async processSignup(input: MemberInput): Promise <Member> { 
         const exist = await this.memberModel

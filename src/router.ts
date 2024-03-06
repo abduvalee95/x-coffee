@@ -31,5 +31,10 @@ router.get('/login', memberController.getLogin)// login endpoint membercontrolle
 router.get('/signup', memberController.getSignup)
  */
 
-//*                                             React
+//*                                             React SPA
+
+router.post("/login", memberController.login)
+        .post ("/signup", memberController.signup)
+
+
 export default router

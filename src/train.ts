@@ -1,6 +1,22 @@
 console.log("This is Train Area");
+/* 
+//**                                                  Task - I
 
+
+function countDigit1(str:String) {
+    return str.replace(/\D/g,'').toString()
+}
+let input = 'sdf68675m46ksdl435kml326klm' 
+const digit = countDigit1(input)
+console.log(`Listda ${digit} shu raqamlar bor`);
+console.log(typeof(digit))
+
+
+ */
+
+/* 
 //**                                                  Task - H
+
 const number = [9,8,1,2,-5,3,4,5,-9,6,7,8,-0,45] 
 
 
@@ -9,6 +25,39 @@ function getPositive() {
 }
 const a = getPositive()
 console.log("Type:",typeof(a));
+
+ */
+
+//*                                                  Task Sezar Cipher
+
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+let code = 9;
+const message = "hello, how are you? my general";
+
+function decodeMessage(message:string, secretcode:number) { 
+    let decodedMessage = "" 
+    for (let i = 0; i < message.length; i++) {
+      const index = alphabet.indexOf(message[i]);
+      if (index === -1){
+        decodedMessage += message[i] 
+    }else{
+        const newIndex = (secretcode + index + alphabet.length) % alphabet.length // shunda alphabetni qaytib aylanyabti 
+        decodedMessage += alphabet[newIndex] // yangi shifr messageni hosil qilyabti 
+    }
+ 
+    }
+    return decodedMessage
+}
+
+const secret_msg = decodeMessage(message,code);
+console.log("Secret message =>:",secret_msg);
+
+setTimeout(() => {
+    code *= -1
+    const message_encoded = decodeMessage(secret_msg,code);
+    console.log("Original =>:", message_encoded);
+    
+},5000);
 
 
 
@@ -68,3 +117,8 @@ Traditional api
 Rest api 
 GraphQl api 
  */
+
+/* 
+traditional => frontend = BDDR => EJS
+MOdern FD => SPA  
+*/
