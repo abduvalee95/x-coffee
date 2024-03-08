@@ -34,7 +34,7 @@ router.get('/signup', memberController.getSignup)
 //*                                             React SPA
 
 router.post("/login", memberController.login)
-        .post ("/signup", memberController.signup)
+      .post ("/signup", memberController.signup);
 
 
 export default router

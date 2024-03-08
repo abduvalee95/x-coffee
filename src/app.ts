@@ -31,14 +31,21 @@ export default app;  //module.exports = app;  commonJS
 
 */
 //*                                 Imports
-import express from "express"
-import path from "path"
-import router from "./router"
-import routerAdmin from "./router-admin"
-import morgan from "morgan"
-import { MORGAN_FORMAT } from "./libs/config"
+import express from "express";
+import path from "path";
+import router from "./router";
+import routerAdmin from "./router-admin";
+import morgan from "morgan";
+import { MORGAN_FORMAT } from "./libs/config";
 
+import session from "express-session";
+import ConnectMongoDBSession from "connect-mongodb-session";
 
+const MongoDBStore = ConnectMongoDBSession(session);
+const store = new MongoDBStore({
+    uri : String(process.env.MONGO_URL),
+    collection : 'sessions', //sessions degan collectionni ochilishini korsatyabmiz
+})
 // **                               ENTERANCE
 const app = express()
 app.use(express.static(path.join(__dirname,"public")))
@@ -46,7 +53,21 @@ app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
 app.use(morgan((MORGAN_FORMAT))) //GET /admin 2.868 [304] get boldi shu adminga sts 304
 // **                               SESSIONS
-
+app.use(
+    // ichiga optionlar berib olamiz
+    session({
+    secret: String(process.env.SESSION_SECRET),
+  cookie: {
+    maxAge: 1000 * 3600 * 3 // 3 HR = BU QANCHA VAQT AMAL QILISHINI ANGLATADI
+  },
+  //SESSION: xosil bolganda sess collectionga murojat etadi
+  store: store,
+  // resave agar false bolsa  10:30 => authenticated 13:30 ; kech kirsayam ohirgi mudati 13.30 bolib qolaveradi obnovit bolib turmidi
+  resave: true, // session vaqtni obnovit qilib turadi
+  saveUninitialized: true
+}
+    )
+)
 
 // **                               VIEWS
 app.set('views',path.join(__dirname,"views"))

@@ -1,4 +1,20 @@
 console.log("This is Train Area");
+
+//**                                                  Task - J
+
+function findLongestWorld(str : string) {
+    const s = str.split(' '); //  bu  split arrayga aylantirib qoydi 
+    let longest = s[0]; // sni 0chi indexi a ga tenglandi
+    for (let i = 1; i < s.length ; i++) {
+        if (s[i].length > longest.length) {
+            longest= s[i];
+        }
+    }
+    return longest;
+}
+const finded = findLongestWorld("I am verry strong");
+console.log(finded);
+
 /* 
 //**                                                  Task - I
 
@@ -29,7 +45,7 @@ console.log("Type:",typeof(a));
  */
 
 //*                                                  Task Sezar Cipher
-
+/* 
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 let code = 9;
 const message = "hello, how are you? my general";
@@ -58,7 +74,7 @@ setTimeout(() => {
     console.log("Original =>:", message_encoded);
     
 },5000);
-
+ */
 
 
 //**                                                  Task - G
