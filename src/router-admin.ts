@@ -28,11 +28,13 @@ router.get('/signup',(req:Request, res:Response) => {
 
 //*                                                     Restaraunt
 routerAdmin
-            .get('/', restaurantController.goHome)  // endpoint admin dan boshlansagina adminga yuboradi
-            .get('/login', restaurantController.getLogin)// login endpoint membercontroller ni getLogin degan mantiqgiga borsin deyabmiz 
-            .post('/login', restaurantController.processLogin)
-            .get('/signup', restaurantController.getSignup) //*SignUp
-            .post('/signup', restaurantController.processSignup) 
+    .get('/', restaurantController.goHome)  // endpoint admin dan boshlansagina adminga yuboradi
+    .get('/login', restaurantController.getLogin)
+    .post('/login', restaurantController.processLogin)
+    .get('/signup', restaurantController.getSignup) 
+    .post('/signup', restaurantController.processSignup)
+    .get('/checkme', restaurantController.checkout)
+
 
 //*                                                     Product
 

@@ -1,16 +1,14 @@
 // controllerlarni doim objectlar orqali hosil qilamiz
-import{ T } from "../libs/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
+import { T } from "../libs/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
 import { Request,Response } from "express";
-const restaurantController:T ={};
 import MemberService  from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enum/member.enum";
+import { Message } from "../libs/Errors";
 
-/* 
-memberControler object hosil qiladik va bu object ichida br qator methodlar qurib olamiz 
-Routerlar ichida qanday endpoint lar bor korib olamiz va
- */
-// go home degan methodni tashkil qilamiz
+const restaurantController:T ={};
+
+
 restaurantController.goHome = ( req:Request, res:Response) => {  // mantiqni olib otamiz
     try {
         console.log("goHome");
@@ -42,17 +40,16 @@ restaurantController.getSignup = ( req:Request, res:Response) => {
 restaurantController.processSignup = async ( req: AdminRequest, res:Response) => { 
     try {
         console.log("processSignup");
-        // memberServicedan instance olib MemSerga tenglashtiryabmiz
-        // console.log('body',req.body);
+
 
         const newMember:MemberInput = req.body;
         newMember.memberType = MemberType.RESTAURANT;
         
         const memberService = new MemberService ();
-        const result =  await memberService.processSignup(newMember); // instance orqali process ishga tushyabti  log ishlayabti
+        const result =  await memberService.processSignup(newMember); 
 //todo Sessions
-        req.session.member = result; //session memberni cookiesini ichiga sid ni joylab keladi 
-        req.session.save(function () {  // bu datani saqledi 
+        req.session.member = result;
+        req.session.save(function () {  
             res.send(result)
         });
 
@@ -70,9 +67,7 @@ restaurantController.processLogin = async ( req:AdminRequest, res:Response) => {
         console.log("body:", req.body);
         const input : LoginInput = req.body;
 
-        // MemberService modelimizdan hosil qilingan object 
         const memberService = new MemberService ();
-        // bu objectni yangi methodini defination qismini quramiz va objectni chaqirib olamiz
         const result = await memberService.processLogin(input)
 // todo sessions
         req.session.member = result; //session memberni cookiesini ichiga sid ni joylab keladi 
@@ -81,7 +76,18 @@ restaurantController.processLogin = async ( req:AdminRequest, res:Response) => {
         });
         } catch (error) {
             console.log("Error, processLogin ",error);
-            // process logindan qaytgan error bu erda handle bolish kk
+            res.send(error)
+        }
+    };
+
+
+restaurantController.checkout = async ( req:AdminRequest, res:Response) => { 
+    try {
+        console.log("Chekout:restoran");
+        if (req.session?.member) res.send(`<script> alert ("Hello ${req.session.member.memberNick}  WELCOME AGAIN ) </script>`);
+        else res.send(`<script> alert ("${Message.NOT_AUTHENTICATED}") </script>`);
+        } catch (error) {
+            console.log("Error, processLogin ",error);
             res.send(error)
         }
     };

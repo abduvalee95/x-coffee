@@ -18,6 +18,7 @@ export enum  Message {
     USED_NICK_FOUND = 'Already used nickname or phone!',
     NO_MEMBER_NICK = 'No member with that member Nick!',
     WRONG_PASSWORD = 'Wrong Password, Please try again!',
+    NOT_AUTHENTICATED = 'You are not authenticated, Please login first'
 }
 
 // Js ichida build in qilingan errorlarga build in qilinsin  INHERETANCE concept

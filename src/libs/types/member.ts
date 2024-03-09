@@ -21,7 +21,7 @@ export interface MemberInput {
 export interface Member {
     memberType: MemberType;
     memberStatus: MemberStatus;
-    memberçNick : string;
+    memberNick : string;
     memberPhone : string;
     memberPassword? : string; //yashirdik
     memberAddre? : string;
