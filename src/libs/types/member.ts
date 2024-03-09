@@ -1,5 +1,7 @@
 import { ObjectId } from 'mongoose'
 import { MemberStatus, MemberType } from "../enum/member.enum";
+import { Request } from 'express';
+import { Session } from 'express-session';
 
 export interface MemberInput {
     _id : ObjectId;
@@ -34,4 +36,9 @@ export interface Member {
 export interface LoginInput {
     memberNick : string;
     memberPassword : string;
+}
+
+export interface AdminRequest extends Request {
+    member : Member;
+    session: Session &{ member:Member }; // sessionni ichida member typimiz bor deb korsatib olamiz
 }

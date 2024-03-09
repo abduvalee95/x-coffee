@@ -118,7 +118,8 @@ class MemberService {
         .exec() // querylarni ketma ketligni yop  kop resurse emidi qoymasayam bolaveradi 
         console.log("EXIST:",exist);
              if (exist)  throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
-console.log('Before');
+console.log('Before');  
+        console.log('process signup');
         
              const salt = await bcrypt.genSalt();
              input.memberPassword = await bcrypt.hash(input.memberPassword, salt);

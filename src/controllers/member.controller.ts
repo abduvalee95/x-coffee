@@ -1,6 +1,6 @@
 // controllerlarni doim objectlar orqali hosil qilamiz
 import MemberService from "../models/Member.service";
-import{ T,test } from "../libs/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
+import{ T} from "../libs/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
 import { Request,Response } from "express";
 import { LoginInput, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode } from "../libs/Errors";

@@ -1,9 +1,9 @@
 // controllerlarni doim objectlar orqali hosil qilamiz
-import{ T,test } from "../libs/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
+import{ T } from "../libs/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
 import { Request,Response } from "express";
 const restaurantController:T ={};
 import MemberService  from "../models/Member.service";
-import { LoginInput, MemberInput } from "../libs/types/member";
+import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enum/member.enum";
 
 /* 
@@ -39,7 +39,7 @@ restaurantController.getSignup = ( req:Request, res:Response) => {
         }
     };
 
-restaurantController.processSignup = async ( req:Request, res:Response) => { 
+restaurantController.processSignup = async ( req: AdminRequest, res:Response) => { 
     try {
         console.log("processSignup");
         // memberServicedan instance olib MemSerga tenglashtiryabmiz
@@ -51,15 +51,20 @@ restaurantController.processSignup = async ( req:Request, res:Response) => {
         const memberService = new MemberService ();
         const result =  await memberService.processSignup(newMember); // instance orqali process ishga tushyabti  log ishlayabti
 //todo Sessions
+        req.session.member = result; //session memberni cookiesini ichiga sid ni joylab keladi 
+        req.session.save(function () {  // bu datani saqledi 
+            res.send(result)
+        });
 
-        res.send(result)
+
+        
         } catch (error) {
             console.log("Error, processSignup",error);
             res.send(error)
         }
     };
 
-restaurantController.processLogin = async ( req:Request, res:Response) => { 
+restaurantController.processLogin = async ( req:AdminRequest, res:Response) => { 
     try {
         console.log("processLogin:restoran");
         console.log("body:", req.body);
@@ -70,8 +75,10 @@ restaurantController.processLogin = async ( req:Request, res:Response) => {
         // bu objectni yangi methodini defination qismini quramiz va objectni chaqirib olamiz
         const result = await memberService.processLogin(input)
 // todo sessions
-
-        res.send(result)
+        req.session.member = result; //session memberni cookiesini ichiga sid ni joylab keladi 
+        req.session.save(function () {  // bu datani saqledi 
+            res.send(result)
+        });
         } catch (error) {
             console.log("Error, processLogin ",error);
             // process logindan qaytgan error bu erda handle bolish kk

@@ -121,9 +121,10 @@ mongoose.connect(process.env.MONGO_URL as string, {}) //{} conection option
     
 )
  */
-import dotenv from "dotenv";
+
 import mongoose from "mongoose";
 import app from "./app";
+import dotenv from "dotenv";
 dotenv.config();
 
 // ?mongoose orqali mongodbga ulanish 
