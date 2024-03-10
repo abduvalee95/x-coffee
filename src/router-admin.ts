@@ -1,6 +1,7 @@
 import express from "express";
 // import express,{Request,Response} from "express"; // typelariniham chaqirib olamiz
 import restaurantController from "./controllers/restaurant.controller";
+import productController from "./controllers/product.controller";
 
 const routerAdmin = express.Router();
 // va manashu instancdan foydalanib get post methodlarini amalga oshirishimiz m-m
@@ -31,15 +32,16 @@ routerAdmin
     .get('/', restaurantController.goHome)  // endpoint admin dan boshlansagina adminga yuboradi
     .get('/login', restaurantController.getLogin)
     .post('/login', restaurantController.processLogin)
+
     .get('/signup', restaurantController.getSignup) 
     .post('/signup', restaurantController.processSignup)
+
     .get('/logout', restaurantController.logout)
-
     .get('/checkme', restaurantController.checkout)
-
-
 //*                                                     Product
-
+    .get('/product/all', productController.getAllProducts)
+    .post('/product/create', productController.createNewProduct)
+    .post('/product/:id', productController.updateChosenProduct)
 //*                                                     User
 
 
