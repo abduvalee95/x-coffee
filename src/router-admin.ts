@@ -33,6 +33,8 @@ routerAdmin
     .post('/login', restaurantController.processLogin)
     .get('/signup', restaurantController.getSignup) 
     .post('/signup', restaurantController.processSignup)
+    .get('/logout', restaurantController.logout)
+
     .get('/checkme', restaurantController.checkout)
 
 

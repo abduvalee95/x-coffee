@@ -4,28 +4,22 @@ import { Request,Response } from "express";
 import MemberService  from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enum/member.enum";
-import { Message } from "../libs/Errors";
+import Errors, { Message } from "../libs/Errors";
 
 const restaurantController:T ={};
 
+//*                                     HomePage
 
 restaurantController.goHome = ( req:Request, res:Response) => {  // mantiqni olib otamiz
     try {
         console.log("goHome");
     res.render('home');
     } catch (error) {
-        console.log("Error, goHome",error);
+        res.redirect('/admin')
     }
 };
 
-restaurantController.getLogin = ( req:Request, res:Response) => { 
-    try {
-        console.log("getlogin");
-        res.render('login');
-        } catch (error) {
-            console.log("Error, getLogin",error);
-        }
-    };
+//*                                     Get-Signup
 
 restaurantController.getSignup = ( req:Request, res:Response) => { 
     try {
@@ -33,9 +27,24 @@ restaurantController.getSignup = ( req:Request, res:Response) => {
 
         res.render('signup');
         } catch (error) {
-            console.log("Error, getSign-Up",error);
+            res.redirect('/admin')
+        }
+    };   
+    
+//*                                      Get-login
+
+restaurantController.getLogin = ( req:Request, res:Response) => { 
+    try {
+        console.log("getlogin");
+        res.render('login');
+        } catch (error) {
+            res.redirect('/admin')
         }
     };
+
+
+
+//*                                     Signup
 
 restaurantController.processSignup = async ( req: AdminRequest, res:Response) => { 
     try {
@@ -57,9 +66,12 @@ restaurantController.processSignup = async ( req: AdminRequest, res:Response) =>
         
         } catch (error) {
             console.log("Error, processSignup",error);
-            res.send(error)
+            const message = 
+            error instanceof Errors ? error.message : Message.SOMETHING_WENT_WRONG 
+            res.send(`<script> alert ("${message}"); window.location.replace('/admin/signup') </script>`);
         }
     };
+//*                                    Post-Login
 
 restaurantController.processLogin = async ( req:AdminRequest, res:Response) => { 
     try {
@@ -76,24 +88,42 @@ restaurantController.processLogin = async ( req:AdminRequest, res:Response) => {
         });
         } catch (error) {
             console.log("Error, processLogin ",error);
-            res.send(error)
+            const message = 
+            error instanceof Errors ? error.message : Message.SOMETHING_WENT_WRONG 
+
+            res.send(`<script> alert ("${message}"); window.location.replace('/admin/login') </script>`);
+
         }
     };
 
+//*                                     Logout
+
+restaurantController.logout = async ( req:AdminRequest, res:Response) => { 
+    try {
+
+        console.log("Logout:restoran");
+        req.session.destroy(function() {
+            res.redirect('/admin')
+        })
+        } catch (error) {
+            console.log("Error, processLogout ",error);
+            res.redirect('/admin')
+        }
+    };
+
+//*                                     Checkout
 
 restaurantController.checkout = async ( req:AdminRequest, res:Response) => { 
     try {
+        
         console.log("Chekout:restoran");
         if (req.session?.member) res.send(`<script> alert ("Hello ${req.session.member.memberNick}  WELCOME AGAIN ) </script>`);
         else res.send(`<script> alert ("${Message.NOT_AUTHENTICATED}") </script>`);
         } catch (error) {
             console.log("Error, processLogin ",error);
-            res.send(error)
+            res.send(error);
         }
     };
 
-// buni routerda chaqirib olishimiz uchun export qilishimiz kerek
 
 export default restaurantController;
- // default bolganda yahslit qilib olyabmiz
-// default ishlatsa fayli qaytarayotgan qiymatni umumiy olish mumkin boladi 
