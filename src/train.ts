@@ -11,12 +11,11 @@ const findVowels = (str:string) => {
       foundVowels.push(i);
     }
 }
-console.log(foundVowels.length);
-  //return foundVowels.length;
-};
+  return foundVowels.length;
+}
 
 const vowels = findVowels("Hey how aore you");
-//console.log(vowels);
+console.log(vowels);
 
 
 
