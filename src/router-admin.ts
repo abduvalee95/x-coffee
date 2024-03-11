@@ -37,13 +37,22 @@ routerAdmin
     .post('/signup', restaurantController.processSignup)
 
     .get('/logout', restaurantController.logout)
-    .get('/checkme', restaurantController.checkout)
+    .get('/check-me', restaurantController.checkout)
 //*                                                     Product
+    
     .get('/product/all', 
     restaurantController.verifyRestaurant,
     productController.getAllProducts)
-    .post('/product/create', productController.createNewProduct)
-    .post('/product/:id', productController.updateChosenProduct)
+
+
+    .post('/product/create', 
+    restaurantController.verifyRestaurant,
+    productController.createNewProduct)
+
+
+    .post('/product/:id',
+    restaurantController.verifyRestaurant,
+     productController.updateChosenProduct)
 //*                                                     User
 
 
