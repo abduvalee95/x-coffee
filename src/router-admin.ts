@@ -39,7 +39,9 @@ routerAdmin
     .get('/logout', restaurantController.logout)
     .get('/checkme', restaurantController.checkout)
 //*                                                     Product
-    .get('/product/all', productController.getAllProducts)
+    .get('/product/all', 
+    restaurantController.verifyRestaurant,
+    productController.getAllProducts)
     .post('/product/create', productController.createNewProduct)
     .post('/product/:id', productController.updateChosenProduct)
 //*                                                     User

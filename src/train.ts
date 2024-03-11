@@ -1,7 +1,27 @@
 console.log("This is Train Area");
 
-//**                                                  Task - J
+//**                                                  Task - K
 
+const vowel = 'aeiou';
+
+const findVowels = (str:string) => {
+  let foundVowels = [];
+  for (let i of str) {
+    if (vowel.includes(i)) {
+      foundVowels.push(i);
+    }
+  }
+  return foundVowels;
+};
+
+const vowels = findVowels("Hey how are you");
+console.log(vowels);
+
+
+
+
+//**                                                  Task - J
+/* 
 function findLongestWorld(str : string) {
     const s = str.split(' '); //  bu  split arrayga aylantirib qoydi 
     let longest = s[0]; // sni 0chi indexi a ga tenglandi
@@ -13,7 +33,8 @@ function findLongestWorld(str : string) {
     return longest;
 }
 const finded = findLongestWorld("I am verry strong");
-console.log(finded);
+console.log(finded); 
+*/
 
 /* 
 //**                                                  Task - I
