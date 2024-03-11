@@ -10,12 +10,16 @@ const findVowels = (str:string) => {
     if (vowel.includes(i)) {
       foundVowels.push(i);
     }
-  }
-  return foundVowels;
+}
+console.log(foundVowels.length);
+  //return foundVowels.length;
 };
 
-const vowels = findVowels("Hey how are you");
-console.log(vowels);
+const vowels = findVowels("Hey how aore you");
+//console.log(vowels);
+
+
+
 
 
 
