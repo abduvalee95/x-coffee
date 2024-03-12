@@ -179,3 +179,13 @@ GraphQl api
 traditional => frontend = BDDR => EJS
 MOdern FD => SPA  
 */
+/* 
+validation 4 da 
+
+frontend 
+backend
+databaseValidation
+
+[serverValidation]
+
+ */
