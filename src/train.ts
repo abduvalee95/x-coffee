@@ -1,7 +1,24 @@
-console.log("This is Train Area");
+console.log("HERE! is Train Area");
+
+//**                                                  Task - L
+
+function reverseSentence(str:string) {
+    const wordSentence = str.split(' ')
+    console.log(typeof(wordSentence));
+    const reversedWords = wordSentence.map(ele => ele.split('').reverse().join(''));
+    console.log();
+    return reversedWords
+    
+}
+
+const reversed = reverseSentence("we like codding")
+console.log(reversed);
+
+
+
 
 //**                                                  Task - K
-
+/* 
 const vowel = 'aeiou';
 
 const findVowels = (str:string) => {
@@ -17,7 +34,7 @@ const findVowels = (str:string) => {
 const vowels = findVowels("Hey how aore you");
 console.log(vowels);
 
-
+ */
 
 
 
