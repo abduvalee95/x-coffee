@@ -50,7 +50,7 @@ const productScheme = new Schema (
             required: true,
         },
 
-        ProductImage: {
+        productImage: {
             type: [String],
             required: [],
         },
@@ -63,5 +63,5 @@ const productScheme = new Schema (
  {timestamps:true}
 );
 
-productScheme.index({productName:1, productSize:1, productVolume: 1}, {unique:true})
+productScheme.index({prduct},{ unique:true})
 export default mongoose.model("Product", productScheme)

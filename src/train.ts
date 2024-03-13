@@ -6,13 +6,14 @@ function reverseSentence(str:string) {
     const wordSentence = str.split(' ')
     console.log(typeof(wordSentence));
     const reversedWords = wordSentence.map(ele => ele.split('').reverse().join(''));
-    console.log();
-    return reversedWords.toString()
+    
+    const reversedWords1  = reversedWords.join('')
+    return reversedWords1
     
 }
 
 const reversed = reverseSentence("we like codding")
-console.log(typeof reversed);
+console.log(reversed);
 
 
 
