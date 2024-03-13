@@ -7,12 +7,12 @@ function reverseSentence(str:string) {
     console.log(typeof(wordSentence));
     const reversedWords = wordSentence.map(ele => ele.split('').reverse().join(''));
     console.log();
-    return reversedWords
+    return reversedWords.toString()
     
 }
 
 const reversed = reverseSentence("we like codding")
-console.log(reversed);
+console.log(typeof reversed);
 
 
 
