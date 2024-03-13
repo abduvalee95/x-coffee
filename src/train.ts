@@ -7,7 +7,7 @@ function reverseSentence(str:string) {
     console.log(typeof(wordSentence));
     const reversedWords = wordSentence.map(ele => ele.split('').reverse().join(''));
     
-    const reversedWords1  = reversedWords.join('')
+    const reversedWords1  = reversedWords.join(' ')
     return reversedWords1
     
 }
