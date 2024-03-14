@@ -1,12 +1,23 @@
 
 import { Request, Response } from "express";
-import Errors from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 import { T } from "../libs/types/common";
-import ProductServce from "../models/Product.service";
+import ProductService from "../models/Product.service";
+import { ProductInput } from "../libs/types/product";
+import { AdminRequest } from "../libs/types/member";
 
-const productServce = new ProductServce();
+const productService = new ProductService();
 
 const productController: T = {} ;
+
+//*                             SPA 
+
+
+
+
+//*                             SSR
+
+
 
 //*                                 getAllProducts-Page
 productController.getAllProducts = async ( req: Request, res:Response) => { 
@@ -20,20 +31,39 @@ productController.getAllProducts = async ( req: Request, res:Response) => {
         }
     };
 
-//*                                 getAllProducts-Page
+//*                                 createNewProducts-Page
 
-productController.createNewProduct = async ( req:Request, res:Response) => { 
+productController.createNewProduct = async ( req : AdminRequest, res : Response) => { 
     try {
         console.log("createNewProduct");
-        res.send("done!!!")
+        console.log("req",req.files);
+
+        if (!req.files?.length) 
+            throw new Errors(HttpCode.INTERNAL_SERVER_ERROR,Message.CREATE_FAILED);
+
+            const data:  ProductInput = req.body;
+            data.productImages = req.files?.map(ele => {
+                return ele.path.replace(/\\/g, "/");
+            });
+
+            console.log("data",data);
+            
+            await productService.createNewProduct(data);
+            
+
+            res.send(
+                `<script> alert ("${"Sucssess"}"); window.location.replace('/admin/product/all') </script>`);
         } catch (error) {
             console.log("Error, getAllProducts",error);
-            if (error instanceof Errors) res.status(error.code).json(error);
-            else res.status(Errors.standart.code).json(Errors.standart);
+
+            const message = 
+            error instanceof Errors ? error.message : Message.SOMETHING_WENT_WRONG;
+            res.send(
+                `<script> alert ("${message}"); window.location.replace('/admin/product/all') </script>`);
         }
     };
 
-//*                                 getAllProducts-Page
+//*                                updateChosenProduct-Page
 
 productController.updateChosenProduct = async ( req:Request, res:Response) => { 
     try {

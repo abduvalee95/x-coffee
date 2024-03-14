@@ -39,6 +39,9 @@ export interface LoginInput {
 }
 
 export interface AdminRequest extends Request {
-    member : Member;
+    member : Member;    
     session: Session &{ member:Member }; // sessionni ichida member typimiz bor deb korsatib olamiz
+    file: Express.Multer.File;
+    files: Express.Multer.File[];
+
 }

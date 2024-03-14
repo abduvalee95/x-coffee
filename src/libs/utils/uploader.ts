@@ -12,6 +12,9 @@ return multer.diskStorage ({
     filename: function(req, file, cb) {
         console.log(file);
         const extension  = path.parse(file.originalname).ext;
+/*         if (extension) {
+            
+        } */
         const random_name = v4() + extension;
         cb(null, random_name)
     },
