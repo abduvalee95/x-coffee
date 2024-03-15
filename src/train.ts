@@ -2,6 +2,27 @@ console.log("HERE! is Train Area");
 
 //**                                                  Task - L
 
+// const arrNumbers = [1,3,5,7,8,5,6,2];
+
+function getSquareNumbers(num:number[] ){
+    
+    const square = num.map((ele ) =>{
+      return { number:ele, square:ele*ele }
+    })
+    return square
+}
+
+const squareNumbers = getSquareNumbers([1,2,3,5]);
+console.log(squareNumbers);
+
+
+
+
+
+
+//**                                                  Task - L
+
+/* 
 function reverseSentence(str:string) {
     const wordSentence = str.split(' ')
     console.log(typeof(wordSentence));
@@ -14,7 +35,7 @@ function reverseSentence(str:string) {
 
 const reversed = reverseSentence("we like codding")
 console.log(reversed);
-
+ */
 
 
 
