@@ -7,6 +7,8 @@ import { MemberType } from "../libs/enum/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 
 const restaurantController:T ={};
+const memberService = new MemberService ();
+
 
 //*                                     HomePage
 
@@ -58,7 +60,7 @@ restaurantController.processSignup = async ( req: AdminRequest, res:Response) =>
         const newMember:MemberInput = req.body;
         newMember.memberImage = file?.path.replace(/\\/g, "/")
         newMember.memberType = MemberType.RESTAURANT;
-        const memberService = new MemberService ();
+
         const result =  await memberService.processSignup(newMember); 
 //todo Sessions
         req.session.member = result;
@@ -83,7 +85,6 @@ restaurantController.processLogin = async ( req:AdminRequest, res:Response) => {
         console.log("body:", req.body);
         const input : LoginInput = req.body;
 
-        const memberService = new MemberService ();
         const result = await memberService.processLogin(input)
 // todo sessions
         req.session.member = result; //session memberni cookiesini ichiga sid ni joylab keladi 
@@ -112,6 +113,36 @@ restaurantController.logout = async ( req:AdminRequest, res:Response) => {
         } catch (error) {
             console.log("Error, processLogout ",error);
             res.redirect('/admin')
+        }
+    };
+
+
+
+//*                                     getUser
+
+restaurantController.getUsers = async ( req: Request, res: Response) => { 
+    try {
+        console.log("getUser");
+
+        const result = await memberService.getUsers();
+
+        // users degan ejs ga datani pass qilyabmiz 
+        console.log("result:",result);
+        
+        res.render('users', { users: result } );
+        } catch (error) {
+            res.redirect('/admin/login')
+        }
+    };
+
+//*                                     updateChosenUser
+restaurantController.updateChosenUser = ( req: Request, res: Response) => { 
+    try {
+        console.log("updateChosenUser");
+        res.render('login');
+        } catch (error) {
+            console.log("Error:", error);
+            
         }
     };
 
