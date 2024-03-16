@@ -16,8 +16,7 @@ export interface MemberInput {
     memberPoints? : Number;
 }
 
-// qaytyatgan document uchun yangi interface hosil qilamiz
-// databasedan qaytayotgan malumot uchun biriktirilgan type
+
 export interface Member {
     memberType: MemberType;
     memberStatus: MemberStatus;
@@ -38,6 +37,20 @@ export interface LoginInput {
     memberPassword : string;
 }
 
+export interface MemberUpdateInput {
+    _id : ObjectId;
+    memberType?: MemberType;
+    memberStatus?: MemberStatus;
+    memberNick? : string;
+    memberPhone? : string;
+    memberPassword? : string;
+    memberAddre? : string;
+    memberDesc?  : string;
+    memberImage? : string;
+    memberPoints : Number;
+}
+
+
 export interface AdminRequest extends Request {
     member : Member;    
     session: Session &{ member:Member }; // sessionni ichida member typimiz bor deb korsatib olamiz
@@ -45,3 +58,6 @@ export interface AdminRequest extends Request {
     files: Express.Multer.File[];
 
 }
+
+
+
