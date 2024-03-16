@@ -1,9 +1,22 @@
 console.log("HERE! is Train Area");
 
-//**                                                  Task - L
+//**                                                  Task - N
 
-// const arrNumbers = [1,3,5,7,8,5,6,2];
+function palindromCheck(str: string){
+    const toSplit = str.replace(/\s/g, '')
+    const toReverse = toSplit.split('').reverse().join('')
+    const check = toSplit === toReverse
+    return check
+}
 
+const palinCheck = palindromCheck("dad");
+console.log(palinCheck);
+
+
+//**                                                  Task - M
+
+
+/* 
 function getSquareNumbers(num:number[] ){
     
     const square = num.map((ele ) =>{
@@ -15,7 +28,7 @@ function getSquareNumbers(num:number[] ){
 const squareNumbers = getSquareNumbers([1,2,3,5]);
 console.log(squareNumbers);
 
-
+ */
 
 
 
