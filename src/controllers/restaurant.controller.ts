@@ -47,12 +47,14 @@ restaurantController.getLogin = ( req:Request, res:Response) => {
 
 
 
-//*                                     Signup
+//*                                   processSignup
 
 restaurantController.processSignup = async ( req: AdminRequest, res:Response) => { 
     try {
         console.log("processSignup");
         const file = req.file
+        console.log(req.body);
+        
         console.log(file);
         if (!file) 
         throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
@@ -77,7 +79,7 @@ restaurantController.processSignup = async ( req: AdminRequest, res:Response) =>
             res.send(`<script> alert ("${message}"); window.location.replace('/admin/signup') </script>`);
         }
     };
-//*                                    Post-Login
+//*                                    processLogin
 
 restaurantController.processLogin = async ( req:AdminRequest, res:Response) => { 
     try {

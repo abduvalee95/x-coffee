@@ -213,6 +213,11 @@ GraphQl api
 /* 
 traditional => frontend = BDDR => EJS
 MOdern FD => SPA  
+
+coockies
+request join
+self destroy
+
 */
 /* 
 validation 4 da 
