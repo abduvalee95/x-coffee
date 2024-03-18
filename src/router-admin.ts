@@ -6,34 +6,43 @@ import makeUpLoader from "./libs/utils/uploader";
 const routerAdmin = express.Router();
 //*                                                     Restaraunt
 routerAdmin
-    .get('/', restaurantController.goHome)
-    .get('/login', restaurantController.getLogin)
-    .post('/login', restaurantController.processLogin)
+    .get('/', 
+                restaurantController.goHome)
+    .get('/login',
+                restaurantController.getLogin)
+    .post('/login', 
+                restaurantController.processLogin)
 
-    .get('/signup', restaurantController.getSignup) 
+    .get('/signup', 
+                restaurantController.getSignup) 
     .post('/signup', 
     makeUpLoader("members").single("memberImage"),
-    restaurantController.processSignup)
+                restaurantController.processSignup)
 
-    .get('/logout', restaurantController.logout)
-    .get('/check-me', restaurantController.checkout)
+    .get('/logout', 
+                restaurantController.logout)
+    .get('/check-me', 
+                restaurantController.checkout)
+
 //*                                                     Product
     
     .get('/product/all', 
-    restaurantController.verifyRestaurant,
-    productController.getAllProducts)
+                restaurantController.verifyRestaurant,
+                productController.getAllProducts)
 
 
     .post('/product/create', 
-    restaurantController.verifyRestaurant,
+                restaurantController.verifyRestaurant,
     makeUpLoader("products").array("productImages", 5),
-    productController.createNewProduct)
+                productController.createNewProduct)
 
 
     .post('/product/:id',
-    restaurantController.verifyRestaurant,
-     productController.updateChosenProduct)
+                restaurantController.verifyRestaurant,
+                productController.updateChosenProduct)
+
 //*                                                     User
+
 
     .get("/user/all", 
                 restaurantController.verifyRestaurant,
