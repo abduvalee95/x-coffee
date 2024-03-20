@@ -1,8 +1,32 @@
+import { parseTwoDigitYear } from "moment";
+
 console.log("HERE! is Train Area");
+
+//**                                                  Task - O
+
+
+
+function sumOfNumbers(num:any){
+    let count = 0;
+
+    for (let i = 0; i <= num.length;i++) {
+        if (typeof num[i] == "number") count += num[i]
+    }
+    return count
+
+}
+
+const num = [10, "10", {son: 10}, true, 35]
+const arrNum = sumOfNumbers(num);
+console.log(arrNum);
+
+
+
 
 //**                                                  Task - N
 
-function palindromCheck(str: string){
+/*
+ function palindromCheck(str: string){
     const toSplit = str.replace(/\s/g, '')
     const toReverse = toSplit.split('').reverse().join('')
     const check = toSplit === toReverse
@@ -12,7 +36,7 @@ function palindromCheck(str: string){
 const palinCheck = palindromCheck("dad");
 console.log(palinCheck);
 
-
+ */
 //**                                                  Task - M
 
 
