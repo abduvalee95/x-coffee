@@ -24,8 +24,6 @@ productController.getAllProducts = async ( req: Request, res:Response) => {
     try {
         console.log("getAllProducts");
         const data = await productService.getAllProducts()
-        console.log("Products:", data);
-        
         
         res.render("products", {products : data} );
  } catch (error) {

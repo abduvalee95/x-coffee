@@ -47,10 +47,11 @@ public async createNewProduct(input:ProductInput): Promise<Product> {
 
   public async updateChosenProduct(
       id: string,
-      input:ProductInput,
+      input: ProductInput,
     ): Promise<Product> {
         id = shapeIntoMongooseObjectId(id)
-        const result = await this.productModel.findByIdAndUpdate({ _id : id }, input, { new:true })
+        const result = await this.productModel
+        .findByIdAndUpdate({ _id : id }, input, { new:true })
         .exec();
         if(!result) throw new Errors(HttpCode.NOT_MODIFIED,Message.UPDATE_FAILED);
 
