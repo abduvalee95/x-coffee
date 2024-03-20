@@ -29,7 +29,6 @@ app.use(morgan((MORGAN_FORMAT)))
 // **                               SESSIONS
 
 app.use (
-    // ichiga optionlar berib olamiz
     session({
     secret: String(process.env.SESSION_SECRET),
   cookie: {
@@ -50,15 +49,15 @@ app.use (function (req, res, next) {
 
 // **                               VIEWS
 
-app.set('views',path.join(__dirname,"views"));
-app.set("view engine", 'ejs');
+app.set("views",path.join(__dirname,"views"));
+app.set("view engine", "ejs");
 
 
 // **                               ROUTING
 
 
-app.use('/admin', routerAdmin);
-app.use('/',router);           
+app.use("/admin", routerAdmin);
+app.use("/",router);           
 
 
 export default app;

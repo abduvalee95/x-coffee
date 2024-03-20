@@ -127,8 +127,6 @@ restaurantController.getUsers = async ( req: Request, res: Response) => {
         console.log("getUser");
 
         const result = await memberService.getUsers();
-
-        // users degan ejs ga datani pass qilyabmiz 
         console.log("result:",result);
         
         res.render('users', { users: result } );

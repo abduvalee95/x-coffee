@@ -2,9 +2,19 @@ import { parseTwoDigitYear } from "moment";
 
 console.log("HERE! is Train Area");
 
+//**                                                  Task - P
+
+
+
+function objectToArray(num:any){
+
+}
+objectToArray( {a: 10, b: 20})
+
+
 //**                                                  Task - O
 
-
+/* 
 
 function sumOfNumbers(num:any){
     let count = 0;
@@ -19,6 +29,16 @@ function sumOfNumbers(num:any){
 const num = [10, "10", {son: 10}, true, 35]
 const arrNum = sumOfNumbers(num);
 console.log(arrNum);
+ */
+// gpt version
+
+// function sumOfNumbers(num: any[]) {
+//     return num.reduce((acc, curr) => typeof curr === "number" ? acc + curr : acc, 0);
+// }
+
+// const num = [10, "10", { son: 10 }, true, 35];
+// const arrNum = sumOfNumbers(num);
+// console.log(arrNum);
 
 
 
