@@ -27,8 +27,6 @@ $(function () {
     $(".new-product-status").on("change", async function(e) {
         const id = e.target.id
         const productStatus = $(`#${id}.new-product-status`).val();
-        console.log("id:",id);
-        console.log("ProductStatus:", productStatus);
 
         try {
             const response = await axios.post(`/admin/product/${id}`, {
@@ -36,7 +34,6 @@ $(function () {
             });
             const result = response.data;
             if (result.data) {
-                console.log("product updated");
                 $(".new-product-status").blur();
                 
             }else  alert("Product updater failed");
@@ -55,13 +52,12 @@ $(function () {
 
 function validateForm() {
 
-    const productName = $(".product-name").val();
-    const productPrice = $(".product-price").val();
-    const productLeftCount = $(".product-left-count").val();
-    const productCollection = $(".product-collection").val();
-    const productDesc = $(".product-desc").val();
-    const productStatus = $(".product-status").val();
-
+    const productName = $(".product-name").val(),
+          productPrice = $(".product-price").val(),
+          productLeftCount = $(".product-left-count").val(),
+          productCollection = $(".product-collection").val(),
+          productDesc = $(".product-desc").val(),
+          productStatus = $(".product-status").val();
 
     if ( productName === '' ||
          productPrice === '' ||
@@ -80,9 +76,9 @@ function previewFileHandler(input,order) {
     const imgClassName = input.className;
     console.log(input);
 
-    const file = $(`.${imgClassName}`).get(0).files[0];
-    const fileType = file['type']
-    const validImageType = ["image/jpg","image/png", "image/jpeg"];
+    const file = $(`.${imgClassName}`).get(0).files[0],
+          fileType = file['type'],
+          validImageType = ["image/jpg","image/png", "image/jpeg"];
 
     if (!validImageType.includes(fileType)) { 
         alert ("Please insert only JPG, JPEG, PNG!");

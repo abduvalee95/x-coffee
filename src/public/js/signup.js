@@ -1,25 +1,4 @@
 console.log("Signup frontend javascript file");
-/* class bolsa (".class") ID ("#memberid") HTML ("p")("button") */
- /*    $(function(){
-        $(".member-nick").click(function(){
-            // alert(" MEMBER-NICK BOSILDI")
-            // alert($(".member-phone").val())
-                // alert("yoqoladi",$(".member-phone").hide())
-                // $(".member-phone").hide()
-                //  $(".member-phone").toggle()
-                //  $(".member-phone").animate({bottom: '25px'})
-                 $(".member-phone").animate({opacity: '0.5'})
-            
-        });
-        $("input").click(function(){
-            //  alert(" BOSILDI")
-            // $("input").css({"background-color": 'yellow', "font-size":'20px'})
-            
-        });
-
-
-    }); 
-    */
 
     $(function () {
         const fileTarget = $(".file-box .upload-hidden");
@@ -27,9 +6,9 @@ console.log("Signup frontend javascript file");
 
         fileTarget.on("change", function () {
             if (window.FileReader) {
-                const uploadFile = $(this)[0].files[0];
-                const fileType = uploadFile["type"];
-                const valideImageType = ["image/jpeg","image/jpg","image/png"];
+                const uploadFile = $(this)[0].files[0],
+                      fileType = uploadFile["type"],
+                      valideImageType = ["image/jpeg","image/jpg","image/png"];
                 if (!valideImageType.includes(fileType)){
                     alert("Please insert!!! only jpeg, jpg, and png")
                 } else {
@@ -48,10 +27,10 @@ console.log("Signup frontend javascript file");
 
     function validateSignupForm() {
         // console.log("executed");
-        const memberNick = $(".member-nick").val();
-        const memberPhone = $(".member-phone").val();
-        const memberPassword = $(".member-password").val();
-        const confirmPassword = $(".confirm-password").val();
+        const memberNick = $(".member-nick").val(),
+              memberPhone = $(".member-phone").val(),
+              memberPassword = $(".member-password").val(),
+              confirmPassword = $(".confirm-password").val();
         // console.log(memberNick,memberPassword,memberPhone,confirmPassword);
         if ( memberNick == '' ||
              memberPhone == '' ||

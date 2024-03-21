@@ -1,15 +1,13 @@
-import { parseTwoDigitYear } from "moment";
-
 console.log("HERE! is Train Area");
 
 //**                                                  Task - P
 
 
-
-function objectToArray(num:any){
-
+function objectToArray(obj:object) {
+    return Object.entries(obj)
 }
-objectToArray( {a: 10, b: 20})
+console.log(
+ objectToArray({a: 10, b: 20}));
 
 
 //**                                                  Task - O

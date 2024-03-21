@@ -136,6 +136,7 @@ restaurantController.getUsers = async ( req: Request, res: Response) => {
     };
 
 //*                                     updateChosenUser
+
 restaurantController.updateChosenUser = async( req: Request, res: Response) => { 
     try {
         console.log("updateChosenUser");
