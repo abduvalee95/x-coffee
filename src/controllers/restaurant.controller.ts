@@ -175,7 +175,7 @@ restaurantController.verifyRestaurant = (req : AdminRequest, res : Response, nex
         } else {
         const message = Message.NOT_AUTHENTICATED
         res.send(
-            `<script> alert ("${message}"); window.location.replace('/admin/signup'); </script>`
+            `<script> alert ("${message}"); window.location.replace('/admin/login'); </script>`
             );
     }
 }

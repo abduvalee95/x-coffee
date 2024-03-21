@@ -8,39 +8,6 @@ const memberController:T ={};
 const memberService = new MemberService ();
 
 
-
-/* 
-memberControler object hosil qiladik va bu object ichida br qator methodlar qurib olamiz 
-Routerlar ichida qanday endpoint lar bor korib olamiz va
- */
-// go home degan methodni tashkil qilamiz
-/* 
-memberController.goHome = ( req:Request, res:Response) => {  // mantiqni olib otamiz
-    try {
-    res.send('Home Page');
-    } catch (error) {
-        console.log("Error, goHome",error);
-    }
-};
-
-memberController.getLogin = ( req:Request, res:Response) => { 
-    try {
-        res.send('Login Page');
-        } catch (error) {
-            console.log("Error, getLogin",error);
-        }
-    };
-
-memberController.getSignup = ( req:Request, res:Response) => { 
-    try {
-        res.send('Sign-Up Page');
-        } catch (error) {
-            console.log("Error, getSign-Up",error);
-        }
-    };
- */
-// buni routerda chaqirib olishimiz uchun export qilishimiz kerek
-
 //*                                     React SPA
 
 memberController.signup = async ( req:Request, res:Response) => { 
