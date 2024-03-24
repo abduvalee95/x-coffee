@@ -1,13 +1,29 @@
 console.log("HERE! is Train Area");
 
+//**                                                  Task - Q
+function hasProperty(name:object, str:string){
+    for (let key in name){
+        if (key === str){
+            return true
+        }
+    }
+    return false
+}
+console.log(
+    hasProperty({name: "BMW", model: "M3"}, "model")
+);
+
+
+
+
 //**                                                  Task - P
 
 
-function objectToArray(obj:object) {
-    return Object.entries(obj)
-}
-console.log(
- objectToArray({a: 10, b: 20}));
+// function objectToArray(obj:object) {
+//     return Object.entries(obj)
+// }
+// console.log(
+//  objectToArray({a: 10, b: 20}));
 
 
 //**                                                  Task - O
