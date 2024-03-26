@@ -1,6 +1,15 @@
 console.log("HERE! is Train Area");
 
+//**                                                  Task - R
+function calculate(str:string){
+    return eval(str)
+}
+console.log(
+    calculate("1+3")
+);
+
 //**                                                  Task - Q
+/* 
 function hasProperty(name:object, str:string){
     for (let key in name){
         if (key === str){
@@ -12,9 +21,7 @@ function hasProperty(name:object, str:string){
 console.log(
     hasProperty({name: "BMW", model: "M3"}, "model")
 );
-
-
-
+ */
 
 //**                                                  Task - P
 
