@@ -1,5 +1,22 @@
+import { argThresholdOpts } from "moment";
+
 console.log("HERE! is Train Area");
 
+//**                                                  Task - S
+function missingNumber(arr:number[]){
+    const num = arr.length + 1;
+    for (let i = 0; i < num; i++) {
+        if (!arr.includes(i)) {
+            return i;
+        }
+    }
+    return -1; 
+}
+console.log(
+    missingNumber([3, 0, 1]) 
+);
+
+/* 
 //**                                                  Task - R
 function calculate(str:string){
     return eval(str)
@@ -7,6 +24,7 @@ function calculate(str:string){
 console.log(
     calculate("1+3")
 );
+ */
 
 //**                                                  Task - Q
 /* 
