@@ -2,18 +2,28 @@ import { argThresholdOpts } from "moment";
 
 console.log("HERE! is Train Area");
 
+
+ //**                                                  Task - S
+ function mergeSortedArray(arr2:number[],arr1:number[]) {
+    const sorted = arr2.concat(arr1).sort() 
+    return sorted
+  } 
+  console.log( 
+    mergeSortedArray([8,4,2,1],[7,2,5,2])
+  )
+/*  
 //**                                                  Task - S
 function missingNumber(arr:number[]){
-    const num = arr.length + 1;
+    const num = arr.length + 0;
     for (let i = 0; i < num; i++) {
         if (!arr.includes(i)) {
             return i;
         }
     }
-    return -1; 
+    return "barcha raqam mavjud"
 }
 console.log(
-    missingNumber([3, 0, 1]) 
+    missingNumber([3,2,1,0]) 
 );
 
 /* 
