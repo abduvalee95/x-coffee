@@ -2,16 +2,23 @@ import { argThresholdOpts } from "moment";
 
 console.log("HERE! is Train Area");
 
+//**                                                  Task - Q
+function sumOdds(num: number) {
+  const odds = Math.floor(num / 3) + (num % 2);
+  return odds;
+}
+console.log(sumOdds(9));
 
- //**                                                  Task - S
- function mergeSortedArray(arr2:number[],arr1:number[]) {
-    const sorted = arr2.concat(arr1).sort() 
-    return sorted
-  } 
-  console.log( 
-    mergeSortedArray([8,4,2,1],[7,2,5,2])
-  )
+/* 
+//**                                                  Task - T
+function mergeSortedArray(arr2: number[], arr1: number[]) {
+  const sorted = arr2.concat(arr1).sort();
+  return sorted;
+}
+console.log(mergeSortedArray([8, 4, 2, 1], [7, 2, 5, 2]));
+ */
 /*  
+
 //**                                                  Task - S
 function missingNumber(arr:number[]){
     const num = arr.length + 0;
@@ -53,13 +60,11 @@ console.log(
 
 //**                                                  Task - P
 
-
 // function objectToArray(obj:object) {
 //     return Object.entries(obj)
 // }
 // console.log(
 //  objectToArray({a: 10, b: 20}));
-
 
 //**                                                  Task - O
 
@@ -89,9 +94,6 @@ console.log(arrNum);
 // const arrNum = sumOfNumbers(num);
 // console.log(arrNum);
 
-
-
-
 //**                                                  Task - N
 
 /*
@@ -108,7 +110,6 @@ console.log(palinCheck);
  */
 //**                                                  Task - M
 
-
 /* 
 function getSquareNumbers(num:number[] ){
     
@@ -122,9 +123,6 @@ const squareNumbers = getSquareNumbers([1,2,3,5]);
 console.log(squareNumbers);
 
  */
-
-
-
 
 //**                                                  Task - L
 
@@ -142,8 +140,6 @@ function reverseSentence(str:string) {
 const reversed = reverseSentence("we like codding")
 console.log(reversed);
  */
-
-
 
 //**                                                  Task - K
 /* 
@@ -163,10 +159,6 @@ const vowels = findVowels("Hey how aore you");
 console.log(vowels);
 
  */
-
-
-
-
 
 //**                                                  Task - J
 /* 
@@ -245,7 +237,6 @@ setTimeout(() => {
 },5000);
  */
 
-
 //**                                                  Task - G
 /* 
 const nums = [3,5,1,9,4,8,9,6,0]
@@ -288,14 +279,13 @@ console.log("The index of the highest number is:", highestIndex);
 
 // 1 login standarts
 
-// 2chi . naming standartds // goHome 
+// 2chi . naming standartds // goHome
 // -Camelcase: function, method, variable
 // Pascal - class
 // folder -kebab case
-// css - snake 
+// css - snake
 
-// 3) error handling customaized errors error.ts 
-
+// 3) error handling customaized errors error.ts
 
 /*
 Traditional api 
