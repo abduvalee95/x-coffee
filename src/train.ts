@@ -1,13 +1,32 @@
-import { argThresholdOpts } from "moment";
-
 console.log("HERE! is Train Area");
 
-//**                                                  Task - Q
-function sumOdds(num: number) {
-  const odds = Math.floor(num / 3) + (num % 2);
-  return odds;
+//**                                                  Task - W
+function chunkArray(arr: number[], num: number) {}
+console.log("sum:", chunkArray([1, 3, 4, 56, 2], 3));
+
+//**                                                  Task - V
+
+function countChars(str: string) {
+  const obj: { [v: string]: number } = {};
+  for (let i = 0; i < str.length; i++) {
+    const ele: string = str[i];
+    obj[ele] === undefined ? (obj[ele] = 1) : obj[ele]++;
+  }
+  return obj;
 }
-console.log(sumOdds(9));
+console.log("sum:", countChars("hello"));
+
+//**                                                  Task - U
+function sumOdds(num: number) {
+  let i = 0;
+  let count = 0;
+  while (i < num) {
+    if (i % 2 !== 0) count += 1;
+    i++;
+  }
+  return count;
+}
+console.log("sum:", sumOdds(11));
 
 /* 
 //**                                                  Task - T
