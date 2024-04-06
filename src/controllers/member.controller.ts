@@ -5,6 +5,7 @@ import { Request,Response } from "express";
 import { LoginInput, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode } from "../libs/Errors";
 import AuthService from "../schema/Auth.service";
+import { AUTH_TIMER } from "../libs/config";
 
 // 
 const memberController: T = {},
@@ -20,10 +21,13 @@ memberController.signup = async ( req:Request, res:Response) => {
         const input: MemberInput = req.body,
             result = await memberService.signup(input),
             token = await authService.createToken(result);
-        console.log(token);
         
+            res.cookie("accessToken", token, {
+                maxAge: AUTH_TIMER * 3600 * 1000,
+                httpOnly: false
+            });
 
-              res.json({member: result});
+              res.status(HttpCode.CREATED).json({member: result, accessToken: token});
         } catch (error) {
             console.log("Error, Signup",error);
             if (error instanceof Errors) res.status(error.code).json(error);
@@ -44,9 +48,12 @@ memberController.login = async ( req:Request, res:Response) => {
             token = await authService.createToken(result);
             console.log(token);
             
-        
-        // todo token
-        res.json({member: result});
+        res.cookie("accessToken", token, {
+            maxAge: AUTH_TIMER * 3600 * 1000,
+            httpOnly: false
+        });
+
+        res.status(HttpCode.OK).json({member: result, accessToken: token});
         } catch (error) {
             console.log("Error, Login ",error);
             if (error instanceof Errors) res.status(error.code).json(error);
