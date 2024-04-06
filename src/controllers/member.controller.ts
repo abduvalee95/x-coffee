@@ -62,20 +62,31 @@ memberController.login = async (req: Request, res: Response) => {
 //*                                     LogOut
 
 memberController.logout = (req: ExtendedRequest, res: Response) => {
-    try {
-        console.log("Logout");
-        res.cookie("accessToken", null, { maxAge: 0, httpOnly: true });
-        res.status(HttpCode.OK).json({ Logout: true });
-    } catch (error) {
-        console.log("Error, Logout", error);
-        if (error instanceof Errors) res.status(error.code).json(error);
-        else res.status(Errors.standart.code).json(Errors.standart);
-    }
-}
+  try {
+    console.log("Logout");
+    res.cookie("accessToken", null, { maxAge: 0, httpOnly: true });
+    res.status(HttpCode.OK).json({ Logout: true });
+  } catch (error) {
+    console.log("Error, Logout", error);
+    if (error instanceof Errors) res.status(error.code).json(error);
+    else res.status(Errors.standart.code).json(Errors.standart);
+  }
+};
 
+//*                                     getMemberDetail
 
-
-
+memberController.getMemberDetail = async (req: ExtendedRequest, res: Response) => {
+  try {
+    console.log("getMemberDetail");
+      const result = await memberService.getMemberDetail(req.member);
+      
+      res.status(HttpCode.OK).json(result)
+  } catch (error) {
+    console.log("Error, getMemberDetail", error);
+    if (error instanceof Errors) res.status(error.code).json(error);
+    else res.status(Errors.standart.code).json(Errors.standart);
+  }
+};
 
 //*                                     varifyAuth
 
@@ -91,7 +102,7 @@ memberController.verifyAuth = async (
     if (!req.member)
       throw new Errors(HttpCode.UNAUTHORITHED, Message.NOT_AUTHENTICATED);
 
-      next();
+    next();
   } catch (error) {
     console.log("Error, verifyAuth ", error);
     if (error instanceof Errors) res.status(error.code).json(error);
@@ -102,7 +113,7 @@ memberController.verifyAuth = async (
 //*                                     retrieveAuth
 
 memberController.retrieveyAuth = async (
-    req:ExtendedRequest,
+  req: ExtendedRequest,
   res: Response,
   next: NextFunction
 ) => {
