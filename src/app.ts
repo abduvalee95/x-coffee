@@ -1,4 +1,3 @@
-
 //*                                 Imports
 import express from "express";
 import path from "path";
@@ -21,12 +20,11 @@ const store = new MongoDBStore({
 
 // **                               ENTERANCE
 const app = express()
-app.use(express.static(path.join(__dirname,"public")))
-app.use(express.urlencoded({ extended:true }));
-app.use(express.json());
+app.use(express.static(path.join(__dirname,"public"))) // static folderlarni clientlarga ochib qoyamiz
+app.use(express.urlencoded({ extended:true })); // traditional requestlarmi handle qilish uchun  html form orqali kelayotgan requestlarni  bizning serverimizga kirishga ruhsat etadi 
+app.use(express.json()) // kirib kelayotgan rest apilarni body qismini tashrifni amalga oshiradi 
 app.use(cookieParser())
 app.use(morgan((MORGAN_FORMAT)))
-
 
 // **                               SESSIONS
 

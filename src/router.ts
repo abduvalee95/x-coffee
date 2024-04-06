@@ -3,43 +3,19 @@ import express from "express";
 import memberController from "./controllers/member.controller";
 
 const router = express.Router();
-// va manashu instancdan foydalanib get post methodlarini amalga oshirishimiz m-m
-
-//bu erda 2ta argument kirgizilishi kk 1 chi argument api ni url hisoblaniladi
-//get esa method hisoblaniadi 3 chisida kelayotgan requestni qabul qilishimiz m-m
-/* 
-router.get('/',(req:Request, res:Response) => {
-    res.send("Home Page"); // response qabul qilib olib tekshirib olamiz
-});
-
-router.get('/login',(req:Request, res:Response) => {
-    res.send("Login Page");
-});
-
-
-router.get('/signup',(req:Request, res:Response) => {
-    res.send("Singn-Up Page");
-});
- */
-
-// Routerni endi Controlerlar orqalik handle qilsak
-// routerlarni get methodi orqalik olib unga url taqdim etyabmiz / url bn kirsak go homega yuboryabti req,res ni qabul qiladi automatic
-// "router" yonalish beradigon (routing'yonalish korsatuvchi','marshrutizator')
-/* 
-router.get('/', memberController.goHome)
-router.get('/login', memberController.getLogin)// login endpoint membercontroller ni getLogin degan mantiqgiga borsin deyabmiz 
-router.get('/signup', memberController.getSignup)
- */
 
 //*                                             React SPA
 //*      Member
 
 router
-    .post("/member/login", memberController.login)
-
-    .post("/member/signup", memberController.signup)
+  .post("/member/login", memberController.login)
+  .post("/member/signup", memberController.signup)
+  .post("/member/logout", memberController.verifyAuth, memberController.logout)
     .get("/member/detail", memberController.verifyAuth);
+  
 //*      Product
+
+
 //*      Order
 
 export default router;
