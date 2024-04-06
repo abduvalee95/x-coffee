@@ -4,18 +4,24 @@ import{ T} from "../libs/types/common" // .. tashqariga chiqib lipsga boramiz va
 import { Request,Response } from "express";
 import { LoginInput, MemberInput } from "../libs/types/member";
 import Errors, { HttpCode } from "../libs/Errors";
-const memberController:T ={};
-const memberService = new MemberService ();
+import AuthService from "../schema/Auth.service";
+
+// 
+const memberController: T = {},
+    memberService = new MemberService(),
+    authService = new AuthService();
 
 
-//*                                     React SPA
+//*                                     Signup
 
 memberController.signup = async ( req:Request, res:Response) => { 
     try {
         console.log("Signup");
-        const input:MemberInput = req.body,
-              result =  await memberService.signup(input); // instance orqali process ishga tushyabti  log ishlayabti
-            // todo tokens
+        const input: MemberInput = req.body,
+            result = await memberService.signup(input),
+            token = await authService.createToken(result);
+        console.log(token);
+        
 
               res.json({member: result});
         } catch (error) {
@@ -25,6 +31,8 @@ memberController.signup = async ( req:Request, res:Response) => {
         }
     };
 
+//*                                     Login 
+
 memberController.login = async ( req:Request, res:Response) => { 
     try {
 
@@ -32,7 +40,11 @@ memberController.login = async ( req:Request, res:Response) => {
         console.log("body:", req.body);
 
         const input : LoginInput = req.body,
-                result = await memberService.login(input);
+            result = await memberService.login(input),
+            token = await authService.createToken(result);
+            console.log(token);
+            
+        
         // todo token
         res.json({member: result});
         } catch (error) {

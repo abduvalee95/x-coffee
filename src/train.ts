@@ -1,32 +1,39 @@
 console.log("HERE! is Train Area");
 
 //**                                                  Task - W
-function chunkArray(arr: number[], num: number) {}
-console.log("sum:", chunkArray([1, 3, 4, 56, 2], 3));
+
+function chunkArray(arr: number[], num: number) {
+  let res = [];
+  for (let i = 0; i < arr.length; i += num) {
+    res.push(arr.slice(i, i + num));
+  }
+  return res;
+}
+console.log("sum:", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
 
 //**                                                  Task - V
 
-function countChars(str: string) {
-  const obj: { [v: string]: number } = {};
-  for (let i = 0; i < str.length; i++) {
-    const ele: string = str[i];
-    obj[ele] === undefined ? (obj[ele] = 1) : obj[ele]++;
-  }
-  return obj;
-}
-console.log("sum:", countChars("hello"));
+// function countChars(str: string) {
+//   const obj: { [v: string]: number } = {};
+//   for (let i = 0; i < str.length; i++) {
+//     const ele: string = str[i];
+//     obj[ele] === undefined ? (obj[ele] = 1) : obj[ele]++;
+//   }
+//   return obj;
+// }
+// console.log("sum:", countChars("hello"));
 
 //**                                                  Task - U
-function sumOdds(num: number) {
-  let i = 0;
-  let count = 0;
-  while (i < num) {
-    if (i % 2 !== 0) count += 1;
-    i++;
-  }
-  return count;
-}
-console.log("sum:", sumOdds(11));
+// function sumOdds(num: number) {
+//   let i = 0;
+//   let count = 0;
+//   while (i < num) {
+//     if (i % 2 !== 0) count += 1;
+//     i++;
+//   }
+//   return count;
+// }
+// console.log("sum:", sumOdds(11));
 
 /* 
 //**                                                  Task - T

@@ -63,17 +63,15 @@ class MemberService {
     constructor() {
         this.memberModel = MemberModel; // bu class database bn operatsiyalardi qiladi 
     }
-//*                                                         SPA
+//*                                                         SPA Signup
 
     public async signup(input: MemberInput): Promise <Member> { 
         const salt = await bcrypt.genSalt();
         input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
-    console.log('keldi');
     
         try {
         const result = await this.memberModel.create(input);  
         result.memberPassword = "";
-        console.log('otdi');
         
         return result.toJSON()
 
@@ -83,6 +81,8 @@ class MemberService {
             throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_FOUND);
         }
     }
+
+//*                                                         SPA Login
 
     public async login(input: LoginInput): Promise <Member> {
        console.log("Service login");
