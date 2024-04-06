@@ -3,7 +3,7 @@ import MemberService from "../models/Member.service";
 import{ T} from "../libs/types/common" // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
 import { Request,Response } from "express";
 import { LoginInput, MemberInput } from "../libs/types/member";
-import Errors, { HttpCode } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../schema/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
 
@@ -59,7 +59,26 @@ memberController.login = async ( req:Request, res:Response) => {
             if (error instanceof Errors) res.status(error.code).json(error);
             else res.status(Errors.standart.code).json(Errors.standart);
         }
-    };
+};
+    
+memberController.verifyAuth = async (req:Request, res:Response) => {
+    try {
+        let member = null
+        const token = req.cookies["accessToken"];
+        if (token) member = await authService.checkAuth(token)
+        
+        if (!member)
+            throw new Errors(HttpCode.UNAUTHORITHED, Message.NOT_AUTHENTICATED)
+
+        res.status(HttpCode.OK).json({member: member});
+        
+
+    } catch (error) {
+        console.log("Error, verifyAuth ",error);
+        if (error instanceof Errors) res.status(error.code).json(error);
+        else res.status(Errors.standart.code).json(Errors.standart);
+    }
+}
 
 
 
