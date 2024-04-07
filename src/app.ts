@@ -20,8 +20,9 @@ const store = new MongoDBStore({
 
 // **                               ENTERANCE
 const app = express()
-app.use(express.static(path.join(__dirname,"public"))) // static folderlarni clientlarga ochib qoyamiz
-app.use(express.urlencoded({ extended:true })); // traditional requestlarmi handle qilish uchun  html form orqali kelayotgan requestlarni  bizning serverimizga kirishga ruhsat etadi 
+app.use(express.static(path.join(__dirname, "public", ))) // static folderlarni clientlarga ochib qoyamiz
+app.use("/uploads",express.static("./uploads"))
+app.use(express.urlencoded({ extended: true })); // traditional requestlarmi handle qilish uchun  html form orqali kelayotgan requestlarni  bizning serverimizga kirishga ruhsat etadi
 app.use(express.json()) // kirib kelayotgan rest apilarni body qismini tashrifni amalga oshiradi 
 app.use(cookieParser())
 app.use(morgan((MORGAN_FORMAT)))

@@ -1,6 +1,7 @@
 import express from "express";
 // import express,{Request,Response} from "express"; // typelariniham chaqirib olamiz
 import memberController from "./controllers/member.controller";
+import uploader from "./libs/utils/uploader";
 
 const router = express.Router();
 
@@ -15,6 +16,12 @@ router
     "/member/detail",
     memberController.verifyAuth,
     memberController.getMemberDetail
+  )
+  .post(
+    "/member/update",
+    memberController.verifyAuth,
+    uploader("members").single("memberImage"),
+    memberController.updateMember
   );
 
 //*      Product

@@ -2,7 +2,7 @@
 import MemberService from "../models/Member.service";
 import { T } from "../libs/types/common"; // .. tashqariga chiqib lipsga boramiz va T interface ni qolga olib beradi
 import { NextFunction, Request, Response } from "express";
-import { ExtendedRequest, LoginInput, MemberInput } from "../libs/types/member";
+import { ExtendedRequest, LoginInput, MemberInput, MemberUpdateInput } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../schema/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
@@ -87,6 +87,26 @@ memberController.getMemberDetail = async (req: ExtendedRequest, res: Response) =
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
+
+//*                                     UpdateMember
+
+memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
+    try {
+        console.log("updateMember");
+        const input: MemberUpdateInput = req.body;
+        if (req.file) input.memberImage = req.file.path.replace(/\\/, "/");
+        const result = await memberService.updateMember(req.member, input)
+          
+        res.status(HttpCode.OK).json(result)
+      } catch (error) {
+        console.log("Error, updateMember", error);
+        if (error instanceof Errors) res.status(error.code).json(error);
+        else res.status(Errors.standart.code).json(Errors.standart);
+      }
+    
+}
+
+
 
 //*                                     varifyAuth
 
