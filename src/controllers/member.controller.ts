@@ -80,7 +80,7 @@ memberController.getMemberDetail = async (req: ExtendedRequest, res: Response) =
     console.log("getMemberDetail");
       const result = await memberService.getMemberDetail(req.member);
       
-      res.status(HttpCode.OK).json(result)
+    res.status(HttpCode.OK).json(result);
   } catch (error) {
     console.log("Error, getMemberDetail", error);
     if (error instanceof Errors) res.status(error.code).json(error);
@@ -95,9 +95,9 @@ memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
         console.log("updateMember");
         const input: MemberUpdateInput = req.body;
         if (req.file) input.memberImage = req.file.path.replace(/\\/, "/");
-        const result = await memberService.updateMember(req.member, input)
+      const result = await memberService.updateMember(req.member, input);
           
-        res.status(HttpCode.OK).json(result)
+      res.status(HttpCode.OK).json(result);
       } catch (error) {
         console.log("Error, updateMember", error);
         if (error instanceof Errors) res.status(error.code).json(error);
@@ -106,6 +106,22 @@ memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
     
 }
 
+
+
+//*                                     getTopUser
+
+memberController.getTopUsers = async (req: Request, res: Response) => {
+  try {
+    console.log("getTopUser");
+    const result = await memberService.getTopUsers();
+    
+    res.status(HttpCode.OK).json(result);
+  } catch (error) {
+    console.log("Error, getTopUser", error);
+        if (error instanceof Errors) res.status(error.code).json(error);
+        else res.status(Errors.standart.code).json(Errors.standart);
+  }
+}
 
 
 //*                                     varifyAuth
