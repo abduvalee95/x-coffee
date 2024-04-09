@@ -64,7 +64,7 @@ restaurantController.processSignup = async ( req: AdminRequest, res:Response) =>
         newMember.memberType = MemberType.RESTAURANT;
 
         const result =  await memberService.processSignup(newMember); 
-//todo Sessions
+
         req.session.member = result;
         req.session.save(function () {  
             res.redirect("/admin/product/all")
@@ -88,7 +88,6 @@ restaurantController.processLogin = async ( req:AdminRequest, res:Response) => {
         const input : LoginInput = req.body;
 
         const result = await memberService.processLogin(input)
-// todo sessions
         req.session.member = result; //session memberni cookiesini ichiga sid ni joylab keladi 
         req.session.save(function () {  // bu datani saqledi 
             res.redirect("/admin/product/all")

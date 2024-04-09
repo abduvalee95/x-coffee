@@ -17,6 +17,19 @@ class MemberService {
   constructor() {
     this.memberModel = MemberModel; // bu class database bn operatsiyalardi qiladi
   }
+
+  //*                                                         SPA getRestaurant
+
+  public async getRestaurant(): Promise<Member> {
+    const result = await this.memberModel
+      .findOne({ memberType: MemberType.RESTAURANT })
+      .lean() // plain objectga aylantirbergani iwlatiladi
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
+  }
+
   //*                                                         SPA Signup
 
   public async signup(input: MemberInput): Promise<Member> {

@@ -4,7 +4,7 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { T } from "../libs/types/common";
 import ProductService from "../models/Product.service";
 import { ProductInput } from "../libs/types/product";
-import { AdminRequest } from "../libs/types/member";
+import { AdminRequest, ExtendedRequest } from "../libs/types/member";
 
 const productService = new ProductService();
 
@@ -12,14 +12,26 @@ const productController: T = {} ;
 
 //*                             SPA 
 
+//*                                 getProduct
+
+// productController.getProducts = async (req: ExtendedRequest, res: Response) => {
+//     try {
+//         console.log("getProducts");
+//         res.status(HttpCode.OK)
+//     } catch (error) {
+//         console.log("Error, getProduct", error);
+//         if (error instanceof Errors) res.status(error.code).json(error);
+//         else res.status(Errors.standart.code).json(Errors.standart);
+//     }
+// };
 
 
 
 //*                             SSR
 
 
-
 //*                                 getAllProducts-Page
+
 productController.getAllProducts = async ( req: Request, res:Response) => { 
     try {
         console.log("getAllProducts");

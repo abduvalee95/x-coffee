@@ -12,7 +12,12 @@ class ProductService {
 
 //**                            SPA 
 
-
+/**
+ **                              getProduct
+ */
+// public async getProduct(memberId: Object, ): Promise<Product> {
+    
+// }
 
 
 //*                             SSR
