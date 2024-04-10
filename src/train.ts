@@ -1,15 +1,32 @@
 console.log("HERE! is Train Area");
 
+//**                                                  Task - Z
+
+function countOccurrences(model:any, str: string) {
+    let count = 0;
+    for (let index in model) {
+        if (typeof model[index] === 'object' ) {
+            count += countOccurrences(model[index], str); 
+        } else if (index === str ){ 
+            count ++
+        }
+    }
+    return count
+    }
+    console.log("sum:", countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model'));
+    
+
+
 //**                                                  Task - W
 
-function chunkArray(arr: number[], num: number) {
-  let res = [];
-  for (let i = 0; i < arr.length; i += num) {
-    res.push(arr.slice(i, i + num));
-  }
-  return res;
-}
-console.log("sum:", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+// function chunkArray(arr: number[], num: number) {
+//   let res = [];
+//   for (let i = 0; i < arr.length; i += num) {
+//     res.push(arr.slice(i, i + num));
+//   }
+//   return res;
+// }
+// console.log("sum:", chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
 
 //**                                                  Task - V
 
