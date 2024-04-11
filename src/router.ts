@@ -29,7 +29,7 @@ router
 
   //*      Product
 
-  // .get("/product/all", productController.getProducts)
+  .get("/product/all", productController.getProducts)
   // .get(
   //   "/product/:id",
   //   memberController.verifyAuth,

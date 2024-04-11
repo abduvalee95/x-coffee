@@ -58,7 +58,7 @@ app.set("view engine", "ejs");
 
 
 app.use("/admin", routerAdmin);
-app.use("/",router);           
+app.use("/", router);           
 
 
 export default app;
