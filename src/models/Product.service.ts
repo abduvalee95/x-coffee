@@ -6,12 +6,16 @@ import { shapeIntoMongooseObjectId } from "../libs/config";
 import { ProductStatus } from "../libs/enum/product.enum";
 import { T } from "../libs/types/common";
 import { ObjectId } from "mongoose";
+import ViewService from "./View.service";
+import { ViewInput } from "../libs/types/view";
+import { ViewGroup } from "../libs/enum/view.enum";
 
 class ProductService {
   private readonly productModel;
-
+  public viewService;
   constructor() {
     this.productModel = ProductModel;
+    this.viewService = new ViewService();
   }
 
   //**                            SPA
@@ -22,8 +26,9 @@ class ProductService {
   public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
     const match: T = { productStatus: ProductStatus.PROCESS };
 
-    if (inquiry.productCollection)
-      match.ProductCollection = inquiry.productCollection; // buni manosi bizga Product priceni hosil qilib beradi dynamic key Drink yoki dish topib berv deyabti
+    if (inquiry.productCollection) {
+      match.productCollection = inquiry.productCollection; // buni manosi bizga Product priceni hosil qilib beradi dynamic key Drink yoki dish topib berv deyabti
+    }
 
     if (inquiry.search) {
       match.productName = { $regex: new RegExp(inquiry.search, "i") };
@@ -49,7 +54,7 @@ class ProductService {
     return result;
   }
 
-  // **                              getProducts
+  // **                              getProduct
 
   public async getProduct(
     memberId: ObjectId | null,
@@ -64,9 +69,28 @@ class ProductService {
 
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
-    // ToDo : if authenticated user => view log creation
-
-    return result;
+    if (memberId) {
+      const input: ViewInput = {
+        memberId: memberId,
+        viewRefId: productId,
+        viewGroup: ViewGroup.PRODUCT,
+      };
+      // Check View
+      const existView = await this.viewService.checkViewExistance(input);
+      // productni kormagan bolsa bu logic ishledi
+      // Insert View
+      console.log("Exist:",!!existView);
+      if (!existView) {
+        await this.viewService.insertMemberView(input);
+        // Increase count
+        result = await this.productModel.findByIdAndUpdate(
+          productId,
+          { $inc: { productViews: +1 } },
+          { new: true }
+        );
+      }
+    }
+      return result
   }
 
   //*                             SSR

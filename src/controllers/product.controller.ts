@@ -17,16 +17,18 @@ const productController: T = {};
 productController.getProducts = async (req: Request, res: Response) => {
   try {
     console.log("getProducts");
-    const { page, limit, order, ProductCollection, search } = req.query;
+    const { page, limit, order, productCollection, search } = req.query;
 
     const inquiry: ProductInquiry = {
       order: String(order),
       page: Number(page),
       limit: Number(limit),
     };
-    if (ProductCollection) {
-      inquiry.productCollection = ProductCollection as ProductCollection;
-    }
+      
+    if (productCollection) {
+      inquiry.productCollection = productCollection as ProductCollection;
+      };
+      
     if (search) inquiry.search = String(search);
 
     const result = await productService.getProducts(inquiry);
@@ -48,7 +50,6 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
           memberId = req.member?._id ?? null, // aynan kim productni malumotni kormoqchi 
           //   authenticated bolsa memberni ichiga requestni valuesni biriktirib berilgan bolsa 
           result = await productService.getProduct(memberId, id);
-      console.log(req.member);
       res.status(HttpCode.OK).json(result)
   } catch (error) {
     console.log("Error, getProduct, error");
