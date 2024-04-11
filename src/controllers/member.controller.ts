@@ -4,7 +4,7 @@ import { T } from "../libs/types/common"; // .. tashqariga chiqib lipsga boramiz
 import { NextFunction, Request, Response } from "express";
 import { ExtendedRequest, LoginInput, MemberInput, MemberUpdateInput } from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
-import AuthService from "../schema/Auth.service";
+import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
 
 //
