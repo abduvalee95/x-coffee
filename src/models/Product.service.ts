@@ -5,7 +5,7 @@ import { HttpCode } from "../libs/Errors";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import { ProductStatus } from "../libs/enum/product.enum";
 import { T } from "../libs/types/common";
-
+import { ObjectId } from "mongoose";
 
 class ProductService {
   private readonly productModel;
@@ -17,17 +17,17 @@ class ProductService {
   //**                            SPA
 
   /**
-   **                              getProduct
+   **                              getProducts
    */
   public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
-      const match: T = { productStatus: ProductStatus.PROCESS };
-      
+    const match: T = { productStatus: ProductStatus.PROCESS };
+
     if (inquiry.productCollection)
       match.ProductCollection = inquiry.productCollection; // buni manosi bizga Product priceni hosil qilib beradi dynamic key Drink yoki dish topib berv deyabti
 
-      if (inquiry.search) {
-          match.productName = { $regex: new RegExp(inquiry.search, "i") };
-      }
+    if (inquiry.search) {
+      match.productName = { $regex: new RegExp(inquiry.search, "i") };
+    }
 
     const sort: T =
       inquiry.order === "productPrice" // eng arzon bolgan narhdan yuqoriga sort qilib ber diyabmiz
@@ -45,6 +45,26 @@ class ProductService {
       .exec();
 
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
+  }
+
+  // **                              getProducts
+
+  public async getProduct(
+    memberId: ObjectId | null,
+    id: string
+  ): Promise<Product> {
+    const productId = shapeIntoMongooseObjectId(id);
+
+    let result = this.productModel.findOne({
+      _id: productId,
+      productStatus: ProductStatus.PROCESS,
+    });
+
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    // ToDo : if authenticated user => view log creation
 
     return result;
   }

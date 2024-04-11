@@ -30,11 +30,11 @@ router
   //*      Product
 
   .get("/product/all", productController.getProducts)
-  // .get(
-  //   "/product/:id",
-  //   memberController.verifyAuth,
-  //   productController.getProduct
-  // );
+  .get(
+    "/product/:id",
+    memberController.retrieveyAuth,
+    productController.getProduct
+  );
 
 //*      Order
 
