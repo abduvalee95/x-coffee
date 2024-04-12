@@ -2,18 +2,31 @@ console.log("HERE! is Train Area");
 
 //**                                                  Task - Z
 
-function countOccurrences(model:any, str: string) {
-    let count = 0;
-    for (let index in model) {
-        if (typeof model[index] === 'object' ) {
-            count += countOccurrences(model[index], str); 
-        } else if (index === str ){ 
-            count ++
+function findIntersection(arr:number[], arr2: number[]) {
+    const newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr2.includes(arr[i])) {
+            newArr.push(arr[i])
         }
     }
-    return count
+    return newArr
     }
-    console.log("sum:", countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model'));
+    console.log("sum:",findIntersection([1,2,3], [3,2,0]));
+    
+//**                                                  Task - X
+
+// function countOccurrences(model:any, str: string) {
+//     let count = 0;
+//     for (let index in model) {
+//         if (typeof model[index] === 'object' ) {
+//             count += countOccurrences(model[index], str); 
+//         } else if (index === str ){ 
+//             count ++
+//         }
+//     }
+//     return count
+//     }
+//     console.log("sum:", countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model'));
     
 
 
