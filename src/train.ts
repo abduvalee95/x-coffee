@@ -1,17 +1,26 @@
 console.log("HERE! is Train Area");
 
+//**                                                  Task - ZA
+
+function sumEven(arr:number[]) {
+   for (let index = 0; index < arr.length; index++) {
+    const element = arr[index]  ;
+    return element
+   }    }
+    console.log("sum:",sumEven([1,2,3]));
+    
 //**                                                  Task - Z
 
-function findIntersection(arr:number[], arr2: number[]) {
-    const newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr2.includes(arr[i])) {
-            newArr.push(arr[i])
-        }
-    }
-    return newArr
-    }
-    console.log("sum:",findIntersection([1,2,3], [3,2,0]));
+// function findIntersection(arr:number[], arr2: number[]) {
+//     const newArr = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr2.includes(arr[i])) {
+//             newArr.push(arr[i])
+//         }
+//     }
+//     return newArr
+//     }
+//     console.log("sum:",findIntersection([1,2,3], [3,2,0]));
     
 //**                                                  Task - X
 
