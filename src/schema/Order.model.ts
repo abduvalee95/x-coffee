@@ -8,7 +8,7 @@ const orderSchema = new Schema(
       required: true,
     },
     orderDelivery: {
-      orderDelivery: Number,
+      type: Number,
       required: true,
     },
     orderStatus: {
