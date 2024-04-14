@@ -1,18 +1,28 @@
-import { Order, OrderInquiry, OrderItemInput } from "../libs/types/order";
+import {
+  Order,
+  OrderInquiry,
+  OrderItemInput,
+  OrderUpdateInput,
+} from "../libs/types/order";
 import { Member } from "../libs/types/member";
 import OrderModel from "../schema/Order.model";
 import OrderItemModel from "../schema/OrderItem.model";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import { ObjectId } from "mongoose";
+import { relativeTimeThreshold } from "moment";
+import MemberService from "./Member.service";
+import { OrderStatus } from "../libs/enum/order.enum";
 
 class OrderService {
   private readonly orderModel;
   private readonly orderItemModel;
+  private readonly memberService;
 
   constructor() {
-    this.orderItemModel = OrderItemModel;
     this.orderModel = OrderModel;
+    this.orderItemModel = OrderItemModel;
+    this.memberService = new MemberService();
   }
 
   // kim hosil qilyabti orderni shuni parametrlariga bervolamiz: va Promiseda <Order> interfacei korinishda hosil boladi
@@ -60,6 +70,7 @@ class OrderService {
     const orderItemState = await Promise.all(promisedList); // ichidegi har bitta operasiyani toliq bajarmagunisha javob bermaydi
     console.log(orderItemState);
   }
+
   public async getMyOrders(
     member: Member,
     inquiry: OrderInquiry
@@ -94,6 +105,38 @@ class OrderService {
       ])
       .exec();
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    return result;
+  }
+
+  public async updateOrder(
+    member: Member,
+    input: OrderUpdateInput
+  ): Promise<Order> {
+    const memberId = shapeIntoMongooseObjectId(member._id),
+      orderId = shapeIntoMongooseObjectId(input.orderId),
+      orderStatus = input.orderStatus;
+    console.log(orderId, orderStatus);
+
+    const result = await this.orderModel
+
+      .findOneAndUpdate(
+        {
+          memberId: memberId,
+          _id: orderId,
+        },
+        { orderStatus: orderStatus },
+        { new: true }
+      )
+      .exec();
+    console.log("result:",result);
+
+    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+    if (orderStatus === OrderStatus.PROCESS) {
+
+      await this.memberService.addUserPoint(member, 1);
+      
+    }
+    
     return result;
   }
 }
