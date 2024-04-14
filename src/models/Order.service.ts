@@ -1,4 +1,4 @@
-import { Order, OrderItemInput } from "../libs/types/order";
+import { Order, OrderInquiry, OrderItemInput } from "../libs/types/order";
 import { Member } from "../libs/types/member";
 import OrderModel from "../schema/Order.model";
 import OrderItemModel from "../schema/OrderItem.model";
@@ -51,14 +51,50 @@ class OrderService {
     const promisedList = input.map(async (item: OrderItemInput) => {
       item.orderId = orderId;
       item.productId = shapeIntoMongooseObjectId(item.productId);
-        await this.orderItemModel.create(item);
-        return "Inserted"
+      await this.orderItemModel.create(item);
+      return "Inserted";
     });
 
     console.log(promisedList);
     //   arraydagi har bitta iwni toliq amalga oshirib beradi
-    const orderItemState = await Promise.all(promisedList); // ichidegi har bitta operasiyani toliq bajarmagunisha javob bermaydi 
+    const orderItemState = await Promise.all(promisedList); // ichidegi har bitta operasiyani toliq bajarmagunisha javob bermaydi
     console.log(orderItemState);
+  }
+  public async getMyOrders(
+    member: Member,
+    inquiry: OrderInquiry
+  ): Promise<Order[]> {
+    const memberId = shapeIntoMongooseObjectId(member._id),
+      matches = { memberId: memberId, orderStatus: inquiry.orderStatus };
+
+    const result = await this.orderModel
+      .aggregate([
+        { $match: matches },
+        { $sort: { updatedAt: -1 } }, // Yuqoridan pastga eng ohrgi ozgarish bolganlarni birinchi yuqoridan korstadi
+        { $skip: (inquiry.page - 1) * inquiry.limit },
+        { $limit: inquiry.limit },
+        //orderItemsga dahldor bolgan malumotlarniham olvolishimiz kk
+        //Lookup agrigaationni ichida topilgan malumotlarni har birini ichida itarate qiladi:va  topilganda  Boshqa 'Collection'ga borib unga taluqli malumotlarni topib keladi
+        {
+          $lookup: {
+            from: "orderItems", // qaysi !"Collection" dan lookup qilmoqchisiz?
+            localField: "_id", //qanday qiymatni "localfield bu hozirgi agrigationda turgan joy Order collectioni"dan ID dini olamiz
+            foreignField: "orderId",
+            as: "orderItems", // shu nomda saqlab ber . Orderga dahldor orderItemlarni olib beradi
+          },
+        },
+        {
+          $lookup: {
+            from: "products",
+            localField: "orderItems.productId",
+            foreignField: "_id",
+            as: "productData",
+          },
+        },
+      ])
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    return result;
   }
 }
 
