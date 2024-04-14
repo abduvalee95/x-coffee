@@ -2,13 +2,25 @@ console.log("HERE! is Train Area");
 
 //**                                                  Task - ZA
 
-function sumEven(arr:number[]) {
-   for (let index = 0; index < arr.length; index++) {
-    const element = arr[index]  ;
-    return element
-   }    }
-    console.log("sum:",sumEven([1,2,3]));
-    
+function sumEven(arr: number[]) {
+  let sum = 0;
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[index] % 2 === 0) {
+      sum += arr[index];
+    }
+  }
+  return sum;
+}
+console.log("sum:", sumEven([1, 3, 4]));
+
+/*  
+let arr = [1, 2, 3, 4, 54, 6, 9, 33, 7];
+let sumEven1 = arr.filter(function (num) {
+  return num % 2 === 0;
+});
+console.log(sumEven1);
+output : [ 2, 4, 54, 6 ] bu function hamma juftni topadi
+ */
 //**                                                  Task - Z
 
 // function findIntersection(arr:number[], arr2: number[]) {
@@ -21,23 +33,21 @@ function sumEven(arr:number[]) {
 //     return newArr
 //     }
 //     console.log("sum:",findIntersection([1,2,3], [3,2,0]));
-    
+
 //**                                                  Task - X
 
 // function countOccurrences(model:any, str: string) {
 //     let count = 0;
 //     for (let index in model) {
 //         if (typeof model[index] === 'object' ) {
-//             count += countOccurrences(model[index], str); 
-//         } else if (index === str ){ 
+//             count += countOccurrences(model[index], str);
+//         } else if (index === str ){
 //             count ++
 //         }
 //     }
 //     return count
 //     }
 //     console.log("sum:", countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model'));
-    
-
 
 //**                                                  Task - W
 
