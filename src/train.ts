@@ -2,6 +2,16 @@ console.log("HERE! is Train Area");
 
 //**                                                  Task - ZA
 
+function sortByAge(sorted:any[]) {
+    return  sorted.sort((minAge, maxAge) => minAge.age - maxAge.age);
+}
+
+console.log(
+    sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }])
+);
+
+//**                                                  Task - Z
+/* 
 function sumEven(arr: number[]) {
   let sum = 0;
   for (let index = 0; index < arr.length; index++) {
@@ -12,7 +22,7 @@ function sumEven(arr: number[]) {
   return sum;
 }
 console.log("sum:", sumEven([1, 3, 4]));
-
+ */
 /*  
 let arr = [1, 2, 3, 4, 54, 6, 9, 33, 7];
 let sumEven1 = arr.filter(function (num) {
@@ -21,7 +31,7 @@ let sumEven1 = arr.filter(function (num) {
 console.log(sumEven1);
 output : [ 2, 4, 54, 6 ] bu function hamma juftni topadi
  */
-//**                                                  Task - Z
+//**                                                  Task - Y
 
 // function findIntersection(arr:number[], arr2: number[]) {
 //     const newArr = [];
