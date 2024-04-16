@@ -18,7 +18,7 @@ orderController.createOrder = async (req: ExtendedRequest, res: Response) => {
     console.log("=>: createOrder :<=");
     // biz yuborishimiz kk bolgan argumentlar , memberimizni' req.member: Extended requestdan kelyabti 'dan olamiz , inputlarimizni 'req.body' dan olamiz
     const result = await orderService.createOrder(req.member, req.body);
-    res.status(HttpCode.CREATED).json({});
+    res.status(HttpCode.CREATED).json(result);
   } catch (error) {
     console.log("Error, createOrder: ", error);
     if (error instanceof Errors) res.status(error.code).json(error);
@@ -48,6 +48,8 @@ orderController.getMyOrders = async (req: ExtendedRequest, res: Response) => {
     else res.status(Errors.standart.code).json(Errors.standart);
   }
 };
+
+
 orderController.updateOrder = async (req: ExtendedRequest, res: Response) => {
     try {
         console.log("=>: updateOrder :<=");
