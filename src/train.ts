@@ -1,7 +1,13 @@
 console.log("HERE! is Train Area");
 
-//**                                                  Task - ZA
+//**                                                  Task - ZB
+function randomBetween(num: number, num1: number) {
+  return Math.floor(Math.random() * (num1 - num)+ num);
+}
+console.log(randomBetween(1, 10));
 
+//**                                                  Task - ZA
+/* 
 function sortByAge(sorted:any[]) {
     return  sorted.sort((minAge, maxAge) => minAge.age - maxAge.age);
 }
@@ -9,7 +15,7 @@ function sortByAge(sorted:any[]) {
 console.log(
     sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }])
 );
-
+ */
 //**                                                  Task - Z
 /* 
 function sumEven(arr: number[]) {
