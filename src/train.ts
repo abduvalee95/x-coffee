@@ -1,8 +1,8 @@
 console.log("HERE! is Train Area");
 
 //**                                                  Task - ZB
-function randomBetween(num: number, num1: number) {
-  return Math.floor(Math.random() * (num1 - num)+ num);
+function randomBetween(num: number, num1: number) { 
+  return Math.floor(Math.random() * (num1 - num)+ num); //floor butun son qivoladi 
 }
 console.log(randomBetween(1, 10));
 
