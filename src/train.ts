@@ -1,11 +1,19 @@
 console.log("HERE! is Train Area");
 
+//**                                                  Task - ZC
+function celciusToFranheit(celsius: number) {
+  const franheit = celsius * 9 / 5 + 32;
+  return franheit;
+}
+console.log(celciusToFranheit(30));
+
 //**                                                  Task - ZB
+/* 
 function randomBetween(num: number, num1: number) { 
   return Math.floor(Math.random() * (num1 - num)+ num); //floor butun son qivoladi 
 }
 console.log(randomBetween(1, 10));
-
+ */
 //**                                                  Task - ZA
 /* 
 function sortByAge(sorted:any[]) {
