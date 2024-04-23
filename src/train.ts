@@ -1,12 +1,22 @@
 console.log("HERE! is Train Area");
 
+//**                                                  Task - ZD
+function changeNumberInArray(num: number, numArray: number [], num2:number) {
+    const removed = numArray.splice(1,1,num2)
+    // return removed
+    return numArray
+}
+console.log(changeNumberInArray(1, [1,3,7,2], 3) );
+
+
 //**                                                  Task - ZC
+/* 
 function celciusToFranheit(celsius: number) {
   const franheit = celsius * 9 / 5 + 32;
   return franheit;
 }
 console.log(celciusToFranheit(30));
-
+ */
 //**                                                  Task - ZB
 /* 
 function randomBetween(num: number, num1: number) { 
