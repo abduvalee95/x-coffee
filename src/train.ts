@@ -2,11 +2,11 @@ console.log("HERE! is Train Area");
 
 //**                                                  Task - ZD
 function changeNumberInArray(num: number, numArray: number [], num2:number) {
-    const removed = numArray.splice(1,1,num2)
+    const removed = numArray.splice(num,1,num2)
     // return removed
     return numArray
 }
-console.log(changeNumberInArray(1, [1,3,7,2], 3) );
+console.log(changeNumberInArray(1, [1,3,7,2], 2) );
 
 
 //**                                                  Task - ZC
