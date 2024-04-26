@@ -1,6 +1,25 @@
 console.log("HERE! is Train Area");
 
+//**                                                Task - ZE
+/* 
+function removeDuplicateC(str: string) {
+    return [...new Set(str.split(""))].join("")
+}
+console.log(removeDuplicateC("sstriingg")); 
+
+ */
+function removeDuplicate(str: string) {
+    let res = ''
+    for (let i of str) {
+        if (!res.includes(i))
+            res += i
+    }
+    return res
+}
+console.log(removeDuplicate("hello"));
+
 //**                                                  Task - ZD
+/* 
 function changeNumberInArray(num: number, numArray: number [], num2:number) {
     const removed = numArray.splice(num,1,num2)
     // return removed
@@ -8,7 +27,7 @@ function changeNumberInArray(num: number, numArray: number [], num2:number) {
 }
 console.log(changeNumberInArray(1, [1,3,7,2], 2) );
 
-
+ */
 //**                                                  Task - ZC
 /* 
 function celciusToFranheit(celsius: number) {
