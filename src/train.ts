@@ -1,5 +1,31 @@
 console.log("HERE! is Train Area");
 
+//**                                                Task - ZD
+
+// function capitalizeWords1(word: string) {
+//     const splited = word.split("")
+//     for (let i = 0; i < splited.length; i++) {
+//         const element = splited[i];
+        
+//         let a = element.charAt(0).toLocaleUpperCase() + element.slice(1).toString()
+
+//     }
+   
+     
+// }
+
+function capitalizeWords(word:string) {
+    const splited = word.split(" ");
+    const capitalizedWords = splited.map(element => element.charAt(0).toLocaleUpperCase() + element.slice(1));
+    return capitalizedWords.join(" ");
+}
+console.log(capitalizeWords("striingg  this be a word "));
+
+
+// return  word.charAt(0).toUpperCase() //chart(0)
+//         + word.slice(1) //boshiga qoyberyabti 
+
+
 //**                                                Task - ZE
 /* 
 function removeDuplicateC(str: string) {
@@ -8,6 +34,7 @@ function removeDuplicateC(str: string) {
 console.log(removeDuplicateC("sstriingg")); 
 
  */
+/* 
 function removeDuplicate(str: string) {
     let res = ''
     for (let i of str) {
@@ -17,7 +44,7 @@ function removeDuplicate(str: string) {
     return res
 }
 console.log(removeDuplicate("hello"));
-
+ */
 //**                                                  Task - ZD
 /* 
 function changeNumberInArray(num: number, numArray: number [], num2:number) {
