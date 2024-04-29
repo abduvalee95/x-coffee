@@ -2,29 +2,22 @@ console.log("HERE! is Train Area");
 
 //**                                                Task - ZD
 
-// function capitalizeWords1(word: string) {
-//     const splited = word.split("")
-//     for (let i = 0; i < splited.length; i++) {
-//         const element = splited[i];
-        
-//         let a = element.charAt(0).toLocaleUpperCase() + element.slice(1).toString()
-
-//     }
-   
-     
-// }
-
-function capitalizeWords(word:string) {
+function capitalizeWords(word: string) {
     const splited = word.split(" ");
-    const capitalizedWords = splited.map(element => element.charAt(0).toLocaleUpperCase() + element.slice(1));
-    return capitalizedWords.join(" ");
+    const capitalizedWords = splited.map((ele) => {
+        if (ele.length > 2) {
+            return ele.charAt(0).toUpperCase() + ele.slice(1)
+        } else {
+          return ele
+      }
+}
+  );
+  return capitalizedWords.join(" ");
 }
 console.log(capitalizeWords("striingg  this be a word "));
 
-
 // return  word.charAt(0).toUpperCase() //chart(0)
-//         + word.slice(1) //boshiga qoyberyabti 
-
+//         + word.slice(1) //boshiga qoyberyabti
 
 //**                                                Task - ZE
 /* 
