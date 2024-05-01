@@ -1,7 +1,14 @@
 console.log("HERE! is Train Area");
 
-//**                                                Task - ZD
+//**                                                Task - ZG
 
+function stringToSnakeCase(word: string) {
+    return  word.split(" ").join("_")
+
+}
+console.log(stringToSnakeCase('name should be a string'));
+//**                                                Task - ZD
+/* 
 function capitalizeWords(word: string) {
     const splited = word.split(" ");
     const capitalizedWords = splited.map((ele) => {
@@ -15,7 +22,7 @@ function capitalizeWords(word: string) {
   return capitalizedWords.join(" ");
 }
 console.log(capitalizeWords("striingg  this be a word "));
-
+ */
 // return  word.charAt(0).toUpperCase() //chart(0)
 //         + word.slice(1) //boshiga qoyberyabti
 
