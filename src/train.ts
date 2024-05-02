@@ -1,12 +1,40 @@
 console.log("HERE! is Train Area");
 
-//**                                                Task - ZG
+//**                                                Task - ZH
 
+function findDisappearedNumbers(numbers: number[]) {
+  let x = numbers.length;
+  const num = [];
+  for (let i = 1; i <= x + 2; i++) {
+    if (!numbers.includes(i)) {
+      num.push(i);
+    }
+  }
+  return num;
+}
+console.log(findDisappearedNumbers([1, 3, 4, 7]));
+
+/* 
+function findDisappearedNumbers(arr: number[]) {
+    const num = arr.length + 0;
+    for (let i = 1; i < num; i++) {
+      if (!arr.includes(i)) {
+        return i;
+      }
+    }
+    return "barcha raqam mavjud";
+  }
+  console.log(findDisappearedNumbers([1, 2,  4,7]));
+   */
+
+//**                                                Task - ZG
+/* 
 function stringToSnakeCase(word: string) {
     return  word.split(" ").join("_")
 
 }
 console.log(stringToSnakeCase('name should be a string'));
+ */
 //**                                                Task - ZD
 /* 
 function capitalizeWords(word: string) {
@@ -81,6 +109,7 @@ console.log(
 );
  */
 //**                                                  Task - Z
+
 /* 
 function sumEven(arr: number[]) {
   let sum = 0;
@@ -93,6 +122,7 @@ function sumEven(arr: number[]) {
 }
 console.log("sum:", sumEven([1, 3, 4]));
  */
+
 /*  
 let arr = [1, 2, 3, 4, 54, 6, 9, 33, 7];
 let sumEven1 = arr.filter(function (num) {
@@ -101,6 +131,7 @@ let sumEven1 = arr.filter(function (num) {
 console.log(sumEven1);
 output : [ 2, 4, 54, 6 ] bu function hamma juftni topadi
  */
+
 //**                                                  Task - Y
 
 // function findIntersection(arr:number[], arr2: number[]) {
@@ -172,21 +203,19 @@ function mergeSortedArray(arr2: number[], arr1: number[]) {
 }
 console.log(mergeSortedArray([8, 4, 2, 1], [7, 2, 5, 2]));
  */
-/*  
-
+/*
 //**                                                  Task - S
-function missingNumber(arr:number[]){
-    const num = arr.length + 0;
-    for (let i = 0; i < num; i++) {
-        if (!arr.includes(i)) {
-            return i;
-        }
+
+function missingNumber(arr: number[]) {
+  const num = arr.length + 0;
+  for (let i = 0; i < num; i++) {
+    if (!arr.includes(i)) {
+      return i;
     }
-    return "barcha raqam mavjud"
+  }
+  return "barcha raqam mavjud";
 }
-console.log(
-    missingNumber([3,2,1,0]) 
-);
+console.log(missingNumber([3, 1, 0]));
 
 /* 
 //**                                                  Task - R
