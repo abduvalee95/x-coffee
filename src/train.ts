@@ -1,7 +1,14 @@
 console.log("HERE! is Train Area");
 
 //**                                                Task - ZH
+function delayHelloWorld(){
+  console.log("Hello World")
+}
+setTimeout(delayHelloWorld,3000)
 
+
+//**                                                Task - ZH
+/* 
 function findDisappearedNumbers(numbers: number[]) {
   let x = numbers.length;
   const num = [];
@@ -13,7 +20,7 @@ function findDisappearedNumbers(numbers: number[]) {
   return num;
 }
 console.log(findDisappearedNumbers([1, 3, 4, 7]));
-
+ */
 /* 
 function findDisappearedNumbers(arr: number[]) {
     const num = arr.length + 0;
