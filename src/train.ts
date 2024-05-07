@@ -1,12 +1,34 @@
 console.log("HERE! is Train Area");
 
+//**                                                Task - ZJ
+
+function reduceNestedArray(num: any[]): number {
+  return num.reduce((a, b) => {
+    if (Array.isArray(b)) {
+      return a + reduceNestedArray(b); // recursively call reduceNestedArray for nested arrays
+    } else {
+      return a + b; // add non-array elements to the accumulator
+    }
+  }, 0); // initialize accumulator to 0
+}
+console.log(reduceNestedArray([1, [1, 2, [4]]])); // Output: 8
+
+/* 
+//Gpt version 
+const reduceNestedArray = (num: any[]): number =>
+  num.reduce((a, b) => Array.isArray(b) ? a + reduceNestedArray(b) : a + b, 0)
+
+console.log(reduceNestedArray([1, [1, 2, [4]]])); // Output: 8
+
+ */
 //**                                                Task - ZH
+/* 
 function delayHelloWorld(){
   console.log("Hello World")
 }
 setTimeout(delayHelloWorld,3000)
 
-
+ */
 //**                                                Task - ZH
 /* 
 function findDisappearedNumbers(numbers: number[]) {
