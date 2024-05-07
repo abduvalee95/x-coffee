@@ -5,13 +5,13 @@ console.log("HERE! is Train Area");
 function reduceNestedArray(num: any[]): number {
   return num.reduce((a, b) => {
     if (Array.isArray(b)) {
-      return a + reduceNestedArray(b); // recursively call reduceNestedArray for nested arrays
+      return a + reduceNestedArray(b);
     } else {
-      return a + b; // add non-array elements to the accumulator
+      return a + b;
     }
-  }, 0); // initialize accumulator to 0
+  }, 0); 
 }
-console.log(reduceNestedArray([1, [1, 2, [4]]])); // Output: 8
+console.log(reduceNestedArray([1, [1, 2, [4]]])); 
 
 /* 
 //Gpt version 
