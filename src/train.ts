@@ -1,7 +1,19 @@
 console.log("HERE! is Train Area");
 
-//**                                                Task - ZJ
+//**                                                Task - ZK
+function printNumbers() {
+  let num = 1;
+  const print = setInterval(() => {
+    if (num <= 5) {
+      console.log(num);
+      num++;
+    }
+  }, 5000);
+}
+printNumbers();
 
+//**                                                Task - ZJ
+/* 
 function reduceNestedArray(num: any[]): number {
   return num.reduce((a, b) => {
     if (Array.isArray(b)) {
@@ -12,7 +24,7 @@ function reduceNestedArray(num: any[]): number {
   }, 0); 
 }
 console.log(reduceNestedArray([1, [1, 2, [4]]])); 
-
+ */
 /* 
 //Gpt version 
 const reduceNestedArray = (num: any[]): number =>
