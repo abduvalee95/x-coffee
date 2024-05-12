@@ -1,7 +1,16 @@
 console.log("HERE! is Train Area");
 
+
 //**                                                Task - ZK
-function printNumbers() {
+
+function stringToKebab(str: string) {
+  return str.split(" ").join("-").toLowerCase()
+}
+
+console.log(stringToKebab('I love Kebab'))
+//**                                                Task - ZK
+/*
+ function printNumbers() {
   let num = 1;
   const print = setInterval(() => {
     if (num <= 5) {
@@ -11,7 +20,7 @@ function printNumbers() {
   }, 5000);
 }
 printNumbers();
-
+ */
 //**                                                Task - ZJ
 /* 
 function reduceNestedArray(num: any[]): number {
