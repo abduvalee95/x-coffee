@@ -1,13 +1,31 @@
 console.log("HERE! is Train Area");
 
 
-//**                                                Task - ZK
+//**                                                Task - ZM
 
+function stringToKebab(num: number) {
+  return (
+    parseFloat(
+      num
+        .toString()
+        .split('')
+        .reverse()
+        .join('')
+    ) * Math.sign(num)
+  )        
+}
+
+console.log(stringToKebab(123456789))
+
+//**                                                Task - ZL
+
+/* 
 function stringToKebab(str: string) {
   return str.split(" ").join("-").toLowerCase()
 }
 
 console.log(stringToKebab('I love Kebab'))
+ */
 //**                                                Task - ZK
 /*
  function printNumbers() {
