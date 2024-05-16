@@ -1,9 +1,14 @@
 console.log("HERE! is Train Area");
 
 
+//**                                                Task - ZN
+function rotateArray(arr: number[], num: number) {
+  return arr.slice(num+1).concat(arr.slice(0,num+1))
+}
+console.log(rotateArray([1, 2, 3, 4, 5, 6], 3))
 //**                                                Task - ZM
-
-function stringToKebab(num: number) {
+/* 
+function reverseInteger(num: number) {
   return (
     parseFloat(
       num
@@ -15,8 +20,8 @@ function stringToKebab(num: number) {
   )        
 }
 
-console.log(stringToKebab(123456789))
-
+console.log(reverseInteger(123456789))
+ */
 //**                                                Task - ZL
 
 /* 
