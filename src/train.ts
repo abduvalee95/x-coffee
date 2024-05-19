@@ -1,11 +1,35 @@
 console.log("HERE! is Train Area");
 
+//**                                                Task - Zo
+
+function areParenthesesBalanced(str:string):boolean {
+  const a: string[] = [],
+          Parentheses: { [key: string]: string } = {
+      ')': '(',
+      ']': '[',
+      '}': '{'
+    };
+  for (let i of str) {
+    if (i in Parentheses) {
+      if (a.length === 0 || a.pop() !== Parentheses[i]) {
+        return false 
+      }
+    } else if (Object.values(Parentheses).includes(i)) {
+      a.push(i)
+    }
+  }
+  return a.length ===0
+}
+console.log(areParenthesesBalanced("string()ichida(qavslar)soni(}balansda,emas!)"));
+
 
 //**                                                Task - ZN
+/* 
 function rotateArray(arr: number[], num: number) {
-  return arr.slice(num+1).concat(arr.slice(0,num+1))
+  return arr.slice(num + 1).concat(arr.slice(0, num + 1));
 }
-console.log(rotateArray([1, 2, 3, 4, 5, 6], 3))
+console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+ */
 //**                                                Task - ZM
 /* 
 function reverseInteger(num: number) {
