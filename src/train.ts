@@ -1,7 +1,31 @@
 console.log("HERE! is Train Area");
 
-//**                                                Task - Zo
+//**                                                Task - ZP
+function mostFrequentElement(nums: number[]): number {
+  const countMap: { [key: number]: number } = {};
+  let maxCount = 0;
+  let mostFrequent: number = nums[0];
 
+  for (let num of nums) {
+      countMap[num] = (countMap[num] || 0) + 1;
+      if (countMap[num] > maxCount) {
+          maxCount = countMap[num];
+          mostFrequent = num;
+      }
+  }
+
+  return mostFrequent;
+}
+
+// Example usage
+const nums = [1, 2, 3, 4, 5, 4, 3, 4];
+console.log(mostFrequentElement(nums)); // Output: 4
+
+
+
+
+//**                                                Task - Zo
+/* 
 function areParenthesesBalanced(str:string):boolean {
   const a: string[] = [],
           Parentheses: { [key: string]: string } = {
@@ -21,7 +45,7 @@ function areParenthesesBalanced(str:string):boolean {
   return a.length ===0
 }
 console.log(areParenthesesBalanced("string()ichida(qavslar)soni(}balansda,emas!)"));
-
+ */
 
 //**                                                Task - ZN
 /* 
