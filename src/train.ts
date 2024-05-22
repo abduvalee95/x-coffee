@@ -1,6 +1,24 @@
 console.log("HERE! is Train Area");
 
-//**                                                Task - ZP
+//**                                                Task - ZQ
+function findDuplicates(nums: number[]) {
+  const counts: Record<number, number> = {};
+  const duplicates: number[] = [];
+
+  nums.forEach(num => {
+    counts[num] = (counts[num] || 0) + 1;
+    if (counts[num] === 2) {
+      duplicates.push(num);
+    }
+  });
+
+  return duplicates;
+}
+
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
+
+//**                                                Task - ZQ
+/* 
 function mostFrequentElement(nums: number[]): number {
   const countMap: { [key: number]: number } = {};
   let maxCount = 0;
@@ -20,9 +38,7 @@ function mostFrequentElement(nums: number[]): number {
 // Example usage
 const nums = [1, 2, 3, 4, 5, 4, 3, 4];
 console.log(mostFrequentElement(nums)); // Output: 4
-
-
-
+*/
 
 //**                                                Task - Zo
 /* 
@@ -231,8 +247,8 @@ console.log(
  */
 //**                                                  Task - Z
 
-/* 
-function sumEven(arr: number[]) {
+
+/* function sumEven(arr: number[]) {
   let sum = 0;
   for (let index = 0; index < arr.length; index++) {
     if (arr[index] % 2 === 0) {
@@ -242,9 +258,9 @@ function sumEven(arr: number[]) {
   return sum;
 }
 console.log("sum:", sumEven([1, 3, 4]));
- */
+//output: sum: 4
 
-/*  
+
 let arr = [1, 2, 3, 4, 54, 6, 9, 33, 7];
 let sumEven1 = arr.filter(function (num) {
   return num % 2 === 0;
