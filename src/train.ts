@@ -1,6 +1,25 @@
+import { JsonWebTokenError } from "jsonwebtoken";
+
 console.log("HERE! is Train Area");
 
+//**                                                Task - ZR
+function countNumberAndLetters(str: string) {
+  const result = { number: 0, letter: 0 }
+  //? str = str..replace(/[^a-zA-Z0-9]/g, "") bu ikkinchi varianti 
+  for (let i = 0; i < str.length; i++){
+    if (!isNaN(+str[i])) {
+      result.number++
+    } else if (str[i].replace(/[^a-zA-Z0-9]/g, "")) {
+      console.log(str[i])
+      result.letter++
+    }
+  } 
+return result
+}
+console.log(countNumberAndLetters('string152/.%\¥'))
+
 //**                                                Task - ZQ
+/* 
 function findDuplicates(nums: number[]) {
   const counts: Record<number, number> = {};
   const duplicates: number[] = [];
@@ -16,7 +35,7 @@ function findDuplicates(nums: number[]) {
 }
 
 console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
-
+ */
 //**                                                Task - ZQ
 /* 
 function mostFrequentElement(nums: number[]): number {
