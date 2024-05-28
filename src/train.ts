@@ -2,6 +2,17 @@ import { JsonWebTokenError } from "jsonwebtoken";
 
 console.log("HERE! is Train Area");
 
+//**                                                Task - ZS
+
+function singleNumber(array: number[]) {
+  let result = 0;
+  for (let num of array) {
+    result ^= num  // x or degan mantiq, birbiriga qoshib yakka raqamni topadi 
+  }
+return result
+}
+console.log(singleNumber([4, 2, 1, 2, 1,4,8]))
+/* 
 //**                                                Task - ZR
 function countNumberAndLetters(str: string) {
   const result = { number: 0, letter: 0 }
@@ -17,9 +28,14 @@ function countNumberAndLetters(str: string) {
 return result
 }
 console.log(countNumberAndLetters('string152/.%\¥'))
-
+ */
 //**                                                Task - ZQ
-/* 
+
+
+
+/*
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4])); 
+
 function findDuplicates(nums: number[]) {
   const counts: Record<number, number> = {};
   const duplicates: number[] = [];
