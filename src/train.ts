@@ -2,8 +2,8 @@ import { JsonWebTokenError } from "jsonwebtoken";
 
 console.log("HERE! is Train Area");
 
-//**                                                Task - ZS
-
+//**                                                Task - ZU
+/* 
 function singleNumber(array: number[]) {
   let result = 0;
   for (let num of array) {
@@ -11,7 +11,40 @@ function singleNumber(array: number[]) {
   }
 return result
 }
-console.log(singleNumber([4, 2, 1, 2, 1,4,8]))
+console.log(singleNumber([4, 2, 1, 2, 1, 4, 8]))
+ */
+//**                                                Task - ZT
+
+function firstUniqueCharIndex(str:string) {
+  const charCount: { [key: string]: number } = {};
+
+  // Count the frequency of each character
+  for (let char of str) {
+      charCount[char] = (charCount[char] || 0) + 1;
+  }
+
+  // Find the index of the first unique character
+  for (let i = 0; i < str.length; i++) {
+      if (charCount[str[i]] === 1) {
+          return i;
+      }
+  }
+
+  return -1; // Return -1 if there is no unique character
+}
+console.log(firstUniqueCharIndex("stamp"))
+/* 
+//**                                                Task - ZS
+
+function sumOfUnique(array: number[]) {
+  let result = 0;
+  for (let num of array) {
+    result ^= num  // x or degan mantiq, birbiriga qoshib yakka raqamni topadi 
+  }
+return result
+}
+console.log(sumOfUnique([1,2,3,2]))
+ */
 /* 
 //**                                                Task - ZR
 function countNumberAndLetters(str: string) {
