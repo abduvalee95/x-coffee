@@ -3,18 +3,33 @@ import { JsonWebTokenError } from "jsonwebtoken";
 console.log("HERE! is Train Area");
 
 //**                                                Task - ZU
-/* 
-function singleNumber(array: number[]) {
-  let result = 0;
-  for (let num of array) {
-    result ^= num  // x or degan mantiq, birbiriga qoshib yakka raqamni topadi 
-  }
-return result
-}
-console.log(singleNumber([4, 2, 1, 2, 1, 4, 8]))
- */
-//**                                                Task - ZT
 
+function sumOfUnique(array: number[]) {
+  const numCount: { [key: number]: number } = {};
+
+  // Count the frequency of each number
+  for (let num of array) {
+      if (numCount[num] === undefined) {
+          numCount[num] = 1;
+      } else {
+          numCount[num]++;
+      }
+  }
+
+  // Sum the numbers that have a frequency of 1
+  let sum = 0;
+  for (let num in numCount) {
+      if (numCount[num] === 1) {
+          sum += parseInt(num);
+      }
+  }
+
+  return sum;
+}
+console.log(sumOfUnique([1,2,3,2]))
+
+//**                                                Task - ZT
+/* 
 function firstUniqueCharIndex(str:string) {
   const charCount: { [key: string]: number } = {};
 
@@ -33,6 +48,7 @@ function firstUniqueCharIndex(str:string) {
   return -1; // Return -1 if there is no unique character
 }
 console.log(firstUniqueCharIndex("stamp"))
+ */
 /* 
 //**                                                Task - ZS
 
