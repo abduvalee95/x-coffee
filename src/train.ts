@@ -4,6 +4,25 @@ console.log("HERE! is Train Area");
 
 //**                                                Task - ZU
 
+function moveZeroes(array: number[]) {
+  let zero = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== 0) {
+      array[zero++] = array[i]
+    } 
+  }
+  for (let i = zero; i < array.length; i++){
+  array[i] = 0
+  }
+
+  return array
+
+}
+console.log(moveZeroes([0, 1, 0, 3, 12]) )
+
+//**                                                Task - ZU
+/* 
 function sumOfUnique(array: number[]) {
   const numCount: { [key: number]: number } = {};
 
@@ -27,7 +46,7 @@ function sumOfUnique(array: number[]) {
   return sum;
 }
 console.log(sumOfUnique([1,2,3,2]))
-
+ */
 //**                                                Task - ZT
 /* 
 function firstUniqueCharIndex(str:string) {
