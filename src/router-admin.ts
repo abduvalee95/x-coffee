@@ -33,7 +33,7 @@ routerAdmin
 
     .post('/product/create', 
                 restaurantController.verifyRestaurant,
-    makeUpLoader("products").array("productImages", 5),
+    makeUpLoader("products").array("productImages", 1),
                 productController.createNewProduct)
 
 

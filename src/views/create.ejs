@@ -2,42 +2,18 @@
 
 <link rel="stylesheet" type="text/css" href="/css/products.css" />
 
-<body
+<body>
+  <div class="products-container">
 
->
-  <div class="products-container"
-
-  >
-    <div class="navigation-menu"
-  >
-      <ul class="nav justify-content-center">
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link active" href="/admin/">Home</a>
-        </li>
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/product/all">Menu</a>
-        </li>
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/user/all">Users</a>
-        </li>
-        <li
-          class="nav-item"
-          style="cursor: pointer"
-          onclick="return confirm('Do you want to logout?')"
-        >
-          <a class="nav-link" href="/admin/logout">Logout</a>
-        </li>
-      </ul>
-    </div>
 
     <div class="restaurant-menu-frame">
       <div class="board">
         <div class="dishes-table">
           <span class="new-dish-txt" style="margin-bottom: 30px">
-          MENU
+            X-Coffee
           </span>
           <table class="table table-bordered table-hover">
-            <thead class="thead-light">
+<!--             <thead class="thead-light">
               <tr class="thead-light">
                 <th scope="col">T/r</th>
                 <th scope="col">Product Name</th>
@@ -47,7 +23,7 @@
                 <th scope="col">Product Left Count</th>
                 <th scope="col">Status</th>
               </tr>
-            </thead>
+            </thead> -->
             <!--* LOOP PRODUCTS: START  -->
             
           <% products.map(function(value, key) { %>
@@ -71,17 +47,6 @@
             <% }) %> 
             <!--*  LOOP PRODUCTS: END  -->
           
-          </table>
-          <div
-            class="long-input"
-            style="align-items: flex-end; margin-bottom: 25px"
-          >
-            <button class="btn btn-primary" id="process-btn">
-              New Product
-            </button>
-          </div>
-        </div>
-
         <form
         onsubmit="return validateForm()"
           action="/admin/product/create"
@@ -89,14 +54,12 @@
           class="dish-container"
           enctype="multipart/form-data"
         >
-          <div class="long-input" style="display: flex; align-items: center"
-          
-          >
-            <span class="new-dish-txt">ADD NEW PRODUCT</span>
+          <div class="long-input" style="display: flex; align-items: center">
+            <span class="new-dish-txt">NEW PRODUCT DETAIL</span>
           </div>
           <div class="login-input-frame">
             <div class="long-input">
-              <label>Name</label>
+              <label>Product Name</label>
               <input
                 type="text"
                 placeholder="Name"
@@ -113,7 +76,7 @@
           </div>
           <div class="half-input-frame">
             <div class="half-input">
-              <label>Price</label>
+              <label>Product Price</label>
               <input
                 type="number"
                 placeholder="Price"
@@ -133,7 +96,7 @@
           </div>
           <div class="half-input-frame">
             <div class="half-input">
-              <label> Type</label>
+              <label>Product Type</label>
               <select class="product-collection" name="productCollection">
                 <option value="DISH" selected>Dish</option>
                 <option value="SALAD">Salad</option>
@@ -165,12 +128,12 @@
             </div>
           </div>
           <div class="long-input">
-            <label>Description</label>
+            <label>Product Description</label>
             <textarea name="productDesc" class="product-desc"></textarea>
           </div>
 
           <div class="img-frame">
-            <label>Images</label>
+            <label>Product Images</label>
             <div class="media-frame">
               <div class="upload-img-box">
                 <img src="/img/upload.svg" class="1" id="image-section-1" />

@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(-45deg, #110303bf, #e37813, #011c1aba, #968383);
+  background-image: linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%);
 }
 
 .products-container a {
@@ -26,7 +26,7 @@
   position: absolute;
   z-index: 10000;
   top: 1%;
-  color: #efefee;
+  color: #805608;
   font-size: 40px;
   font-family: monospace;
 }
@@ -81,7 +81,7 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 25px;
-  color: #ffffff;
+  color: #5e3113;
 }
 
 .products-container .long-input {
@@ -99,7 +99,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 25px;
-  color: #ffffff;
+  color: #555050;
 }
 
 .products-container .long-input input {
@@ -205,7 +205,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 25px;
-  color: #ffffff;
+  color: #545050;
 }
 
 .products-container .half-input input {
