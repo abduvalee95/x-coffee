@@ -1,3 +1,32 @@
+import dotenv from "dotenv";
+dotenv.config();
+import mongoose from "mongoose";
+import app from "./app";
+
+mongoose.connect(process.env.MONGO_URL as string, {}) //{} conection option 
+.then((data) => {
+    console.log("MongoDB connection succsess");
+    const PORT = process.env.PORT ?? 3003;
+    app.listen(PORT, function() {
+        console.info(`The server is running successfully on port: ${PORT}`);
+        console.info(`Admin project on http://localhost:${PORT} \n`)
+    })
+})
+
+.catch((err)=>
+console.log("ERROR on connection PORT",err)
+)
+
+
+
+
+
+
+
+
+
+
+/* 
 // **                                   Typescript 
 // Typescript codelirimizni Compiler qilib beradi oz vaqrida Error chiqadigon qiladi
 // variableni ohiriga : va dynamic type ni korsatishimiz kk boladi
@@ -69,3 +98,54 @@ import moment from 'moment';
 const currentTime  = moment().format("yyyy mm dd hh:mm");
 console.log(currentTime);
 
+//**                                         Patternlar
+
+/*  
+
+Architectural Pattern: MVController, Dependency Injection, MVPresenter;
+bu backendimizni malumot oqimini tartibga soladigon bir vosita yani arhitekturasi 
+
+Design pattern: Middleware, Decotar; modullarni iwladishda  nest jsda 
+butun bir backendni emas 
+malum bir bolaklarini echshda iwlatiladigon pattern 
+
+
+// interface Person {
+//     name1: "dsaf"|"ksfa"|"dgsdf"|342
+// }
+
+// import moment from "moment"  //const moment require("moment")
+
+*/
+// *        IMPORT
+
+/* 
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import app from "./app";
+
+
+dotenv.config();
+console.log("PORT",process.env.PORT);
+console.log("MONGO_URL",process.env.MONGO_URL);
+
+
+// ?mongoose orqali mongodbga ulanish 
+
+
+mongoose.connect(process.env.MONGO_URL as string, {}) //{} conection option 
+.then((data) => {
+    console.log("MongoDB connection succsess");
+    const PORT = process.env.PORT ?? 3003;
+    app.listen(PORT, function() {
+        console.log("DONE"); // dirname qiymatni korish uchun
+        console.log(`The server is running successfully on port: ${PORT}`);
+        
+    })
+})
+
+.catch((err)=>
+    console.log("ERROR on connection PORT",err)
+    
+)
+ */
