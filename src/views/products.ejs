@@ -39,7 +39,7 @@
           <table class="table table-bordered table-hover">
             <thead class="thead-light">
               <tr class="thead-light">
-                <th scope="col">T/r</th>
+
                 <th scope="col">Product Name</th>
                 <th scope="col">Product Type</th>
                 <th scope="col">Product Volume</th>
@@ -52,8 +52,8 @@
             
           <% products.map(function(value, key) { %>
 
-            <tbody style="background: white">
-              <td> <%= key + 1 %></td>
+            <tbody style="background-image: linear-gradient(to top, #df89b5 0%, #bfd9fe 100%); ">
+              <!-- <td> <%= key + 1 %></td> -->
               <td> <%= value.productName %></td>
               <td> <%= value.productCollection %></td>
               <td> <%= value.productCollection  === 'DRINK'? value.productVolume :
@@ -135,16 +135,16 @@
             <div class="half-input">
               <label> Type</label>
               <select class="product-collection" name="productCollection">
-                <option value="DISH" selected>Dish</option>
-                <option value="SALAD">Salad</option>
+                <option value="DISH" selected>Ice-Cream</option>
+               <!--  <option value="SALAD">Salad</option> -->
                 <option value="DESSERT">Dessert</option>
-                <option value="DRINK">Drink</option>
-                <option value="OTHER">Other</option>
+                <option value="DRINK">Coffee</option>
+                <option value="OTHER">Other-Drinks</option>
               </select>
             </div>
 
             <div class="half-input" id="product-collection">
-              <label>Dish Volume</label>
+              <label>Volume</label>
               <select class="product-size" name="productSize">
                 <option value="SMALL">Small</option>
                 <option value="NORMAL" selected>Normal</option>
@@ -154,13 +154,13 @@
             </div>
 
             <div class="half-input" id="product-volume" style="display: none">
-              <label>Drink Volume</label>
+              <label>Coffee</label>
               <select class="product-volume" name="productVolume">
-                <option value="0.5">0,5 liters</option>
-                <option value="1" selected>1 liters</option>
-                <option value="1.2">1,2 liters</option>
-                <option value="1.5">1,5 liters</option>
-                <option value="2">2 liters</option>
+                <option value="0.5">Small</option>
+                 <option value="1" selected>Medium</option>
+               <option value="1.2">Large</option>
+              <!--    <option value="1.5">1,5 liters</option>
+                <option value="2">2 liters</option>-->
               </select>
             </div>
           </div>
@@ -170,7 +170,7 @@
           </div>
 
           <div class="img-frame">
-            <label>Images</label>
+            <label>Add Img</label>
             <div class="media-frame">
               <div class="upload-img-box">
                 <img src="/img/upload.svg" class="1" id="image-section-1" />
@@ -181,46 +181,6 @@
                   class="image-one"
                   required
                   onchange="previewFileHandler(this, 1)"
-                />
-              </div>
-              <div class="upload-img-box">
-                <img src="/img/upload.svg" class="2" id="image-section-2" />
-                <input
-                  type="file"
-                  id="file"
-                  name="productImages"
-                  class="image-two"
-                  onchange="previewFileHandler(this, 2)"
-                />
-              </div>
-              <div class="upload-img-box">
-                <img src="/img/upload.svg" class="3" id="image-section-3" />
-                <input
-                  type="file"
-                  id="file"
-                  name="productImages"
-                  class="image-three"
-                  onchange="previewFileHandler(this, 3)"
-                />
-              </div>
-              <div class="upload-img-box">
-                <img src="/img/upload.svg" class="4" id="image-section-4" />
-                <input
-                  type="file"
-                  id="file"
-                  name="productImages"
-                  class="image-four"
-                  onchange="previewFileHandler(this, 4)"
-                />
-              </div>
-              <div class="upload-img-box">
-                <img src="/img/upload.svg" class="5" id="image-section-5" />
-                <input
-                  type="file"
-                  id="file"
-                  name="productImages"
-                  class="image-five"
-                  onchange="previewFileHandler(this, 5)"
                 />
               </div>
               <input name="restaurantIid" class="restaurant-id" hidden />
