@@ -10,12 +10,12 @@
 }
 
 .home-container a {
-
   text-decoration: none;
-  color: #000000;
+  color: #b21e1e;
 }
 
 .home-container .nav-item a {
+
   color: #e3c08d;
 }
 
@@ -25,9 +25,10 @@
 
 .home-container .navigation-menu {
   position: relative;
+ 
   z-index: 10000;
   color: #efefee;
-  font-size: 40px;
+  font-size: 41px;
   font-family: monospace;
 }
 /* 
