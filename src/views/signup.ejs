@@ -2,11 +2,10 @@
 
 <link rel="stylesheet" type="text/css" href="/css/signup.css" />
 
-<body>
+<body> 
+ 
   <div class="signup-container">
-    <form  onsubmit="return validateSignupForm()"  action="/admin/signup" method="POST" enctype="multipart/form-data">
-      <div class="signup-frame" style="width: 650px">
-        <div class="signup-top">
+     <div class="signup-top">
           <span>Signup</span>
           <div>Go back <a href="/admin" style="color: #6440fb">Home</a></div>
           <p>
@@ -14,10 +13,13 @@
             <a href="/admin/login" style="color: #6440fb">Login</a>
           </p>
         </div>
+    <form  onsubmit="return validateSignupForm()"  action="/admin/signup" method="POST" enctype="multipart/form-data">
+      <div class="signup-frame" style="width: 650px">
+       
 
         <div class="sign-input-frame" style="justify-content: space-between">
           <div class="sign-up-frame">
-            <label>Restaurant *</label>
+            <label>Coffee Shop *</label>
             <input
               type="text"
               name="memberNick"

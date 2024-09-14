@@ -6,10 +6,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  animation: gradient 15s ease infinite;
-  -webkit-animation: gradient 15s ease infinite;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   background-size: 200% 200%;
+}
+
+.signup-container .signup-top {
+  display: flex;
 }
 
 .signup-container a {
@@ -24,7 +26,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  background: #ffffff;
+
   padding: 25px;
 }
 
@@ -60,8 +62,8 @@
   padding-left: 20px;
   width: 100%;
   height: 55px;
-  background: #f6f5f5;
-  border: 1px solid #dddddd;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+
   border-radius: 8px;
 }
 
@@ -92,7 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   box-shadow: 0px 6px 15px rgba(64, 79, 104, 0.05);
   border-radius: 8px;
 }
@@ -141,7 +143,7 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 26px;
-  color: #ffffff;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 }
 
 .signup-container .file-box .upload-name {
@@ -150,7 +152,7 @@
   width: 85%;
   height: 55px;
   display: flex;
-  background: #ffffff;
+  background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);
   border: 1px solid #dddddd;
   border-radius: 8px 0px 0px 8px;
 }
@@ -163,29 +165,4 @@
   font-size: 15px;
   line-height: 26px;
   color: #4f547b;
-}
-
-/* Background animation */
-@-webkit-keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }

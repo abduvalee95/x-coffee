@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(-45deg, #110303bf, #e37813, #011c1aba, #968383);
+  background-image: linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%);
 }
 
 .products-container a {
@@ -26,7 +26,7 @@
   position: absolute;
   z-index: 10000;
   top: 1%;
-  color: #efefee;
+  color: #805608;
   font-size: 40px;
   font-family: monospace;
 }
@@ -36,7 +36,6 @@
   padding-bottom: 80px;
   width: 100%;
   height: auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,7 +80,7 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 25px;
-  color: #ffffff;
+  color: #5e3113;
 }
 
 .products-container .long-input {
@@ -99,7 +98,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 25px;
-  color: #ffffff;
+  color: #555050;
 }
 
 .products-container .long-input input {
@@ -124,8 +123,8 @@
   position: relative;
   margin-top: 10px;
   padding: 20px;
-  width: 100%;
-  height: 200px;
+  width: 50%;
+  height: 100px;
   border: none;
   background: #f7f7f7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -205,7 +204,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 25px;
-  color: #ffffff;
+  color: #545050;
 }
 
 .products-container .half-input input {
@@ -253,7 +252,7 @@
   position: relative;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 .products-container .img-frame label {
@@ -320,7 +319,6 @@ table th {
   width: 0;
   height: 0;
 }
-
 .products-container .slider {
   position: absolute;
   cursor: pointer;
@@ -329,8 +327,8 @@ table th {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 6.8s; 
+   transition: 1.4s;
 }
 
 .products-container .slider:before {
@@ -341,8 +339,8 @@ table th {
   left: 6px;
   bottom: 3.5px;
   background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+ -webkit-transition: 1.4s; 
+transition: 1.4s; 
 }
 
 .products-container input:checked + .slider {
@@ -354,9 +352,9 @@ table th {
 }
 
 .products-container input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(26px); 
+  -ms-transform: translateX(26px); 
+   transform: translateX(26px); 
 }
 
 .products-container .slider.round {
@@ -365,4 +363,4 @@ table th {
 
 .products-container .slider.round:before {
   border-radius: 50%;
-}
+} 
