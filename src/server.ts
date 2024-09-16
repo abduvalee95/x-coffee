@@ -139,4 +139,15 @@ mongoose.connect(process.env.MONGO_URL as string, {}) //{} conection option
     console.log("ERROR on connection PORT",err)
     
 )
- */
+ 
+PM2 COMMANDS:
+pm2 ls;
+pm2 start dist/server.js --name=XCOFFEE;
+pm2 start "npm run start:prod" --name=XCOFEE;
+pm2 stop id; pm2 stop 0;
+pm2 delete id;
+pm2 restart id;
+pm2 monit;
+!pm2 kill; - 
+
+*/
